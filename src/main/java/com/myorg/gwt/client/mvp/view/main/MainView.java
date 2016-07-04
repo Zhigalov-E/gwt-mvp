@@ -22,11 +22,14 @@ public class MainView extends Composite implements IMainView {
 
 	public MainView() {
 		initWidget(uiBinder.createAndBindUi(this));
+		setGreeting();
+	}
+
+	public void setGreeting() {
 		String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
 		userGreeting.setText(greeting + ", Иван.");
 	}
 
-	@Override
 	public void setPresenter(IMainPresenter presenter) {
 		this.presenter = presenter;
 	}

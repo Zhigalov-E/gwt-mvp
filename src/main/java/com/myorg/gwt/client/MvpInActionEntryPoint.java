@@ -41,6 +41,6 @@ public class MvpInActionEntryPoint implements EntryPoint {
 		
 		RootLayoutPanel.get().add(mainLayout);
 		
-		History.newItem("main:");
+		History.newItem("#main:");
 	}
 }
