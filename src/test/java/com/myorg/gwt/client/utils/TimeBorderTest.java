@@ -23,7 +23,6 @@ public class TimeBorderTest extends GWTTestCase {
         checkTimePeriod("09:00:00.000", TimeBorder.Border.DAY);
     }
 
-
     @Test
     public  void testGetNotDayBorder() {
         checkTimePeriod("18:59:59.999", TimeBorder.Border.DAY);
@@ -34,7 +33,6 @@ public class TimeBorderTest extends GWTTestCase {
         checkTimePeriod("19:00:00.000", TimeBorder.Border.EVENING);
     }
 
-
     @Test
     public  void testGetEveningBorder2() {
         checkTimePeriod("22:59:59.999", TimeBorder.Border.EVENING);
@@ -44,7 +42,6 @@ public class TimeBorderTest extends GWTTestCase {
     public  void testGetNightBorder() {
         checkTimePeriod("23:00:00.000", TimeBorder.Border.NIGHT);
     }
-
 
     @Test
     public  void testGetNightBorder2() {

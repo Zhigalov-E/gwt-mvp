@@ -40,7 +40,6 @@ public class MvpInActionEntryPoint implements EntryPoint {
 		historyHandler.register(placeController, eventBus, defaultPlace);
 		
 		RootLayoutPanel.get().add(mainLayout);
-		
-		History.newItem("#main:");
+		historyHandler.handleCurrentHistory();
 	}
 }

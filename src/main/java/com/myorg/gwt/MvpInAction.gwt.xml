@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN"
         "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='mvpinaction'>
-	<inherits name='com.google.gwt.user.User' />
+
+    <inherits name='com.google.gwt.user.User'/>
     <inherits name="com.google.gwt.activity.Activity"/>
     <inherits name="com.google.gwt.place.Place"/>
 
     <extend-property name="locale" values="ru"/>
     <extend-property name="locale" values="en"/>
-    
-	<entry-point class='com.myorg.gwt.client.MvpInActionEntryPoint' />
-    
+
+    <entry-point class='com.myorg.gwt.client.MvpInActionEntryPoint'/>
+
     <replace-with class="com.myorg.gwt.client.ClientFactoryImpl">
-        <when-type-is class="com.myorg.gwt.client.ClientFactory" />
+        <when-type-is class="com.myorg.gwt.client.ClientFactory"/>
     </replace-with>
-    
-	<source path='client' />
+
+    <source path='client'/>
 </module>
