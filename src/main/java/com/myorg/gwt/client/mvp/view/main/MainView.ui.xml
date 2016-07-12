@@ -1,7 +1,9 @@
-<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with type="com.myorg.gwt.client.i18n.AppMessages" field="i18n"/>
+    <ui:style>
 
+    </ui:style>
     <gwt:HTMLPanel>
         <br></br>
         <br></br>
@@ -12,9 +14,8 @@
         <br></br>
         <br></br>
         <br></br>
-        <gwt:Anchor ui:field="logOut" text="Выйти из системы" href="#login:"/>
+        <gwt:Anchor ui:field="logOut" text="{i18n.logout}"  href="#login:"/>
 
     </gwt:HTMLPanel>
-
 </ui:UiBinder>
  

@@ -3,15 +3,19 @@ package com.myorg.gwt.client.mvp.view.main;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.myorg.gwt.client.i18n.AppMessages;
 import com.myorg.gwt.client.mvp.view.IMainView;
 import com.myorg.gwt.client.utils.TimeMessager;
 
 import java.util.Date;
 
 public class MainView extends Composite implements IMainView {
+    @UiTemplate("MainView.ui.xml")
     interface MainViewUiBinder extends UiBinder<Widget, MainView> {
     }
 
@@ -19,10 +23,15 @@ public class MainView extends Composite implements IMainView {
 
     private IMainPresenter presenter;
 
+    @UiField(provided = true)
+    final AppMessages i18n;
+    @UiField
+    Anchor logOut;
     @UiField
     Label userGreeting;
 
     public MainView() {
+        this.i18n = GWT.create(AppMessages.class);
         initWidget(uiBinder.createAndBindUi(this));
         setGreeting();
     }
