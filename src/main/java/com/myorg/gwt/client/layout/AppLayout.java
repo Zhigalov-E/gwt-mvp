@@ -8,16 +8,19 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class AppLayout extends Composite {
-	interface AppLayoutUiBinder extends UiBinder<Widget, AppLayout> { }
-	private static AppLayoutUiBinder uiBinder = GWT.create(AppLayoutUiBinder.class);
-	
-	@UiField SimplePanel appContent;
+    interface AppLayoutUiBinder extends UiBinder<Widget, AppLayout> {
+    }
 
-	public AppLayout() {
-		initWidget(uiBinder.createAndBindUi(this));
-	}
-	
-	public SimplePanel getAppContentHolder() {
-		return this.appContent;
-	}
+    private static AppLayoutUiBinder uiBinder = GWT.create(AppLayoutUiBinder.class);
+
+    @UiField
+    SimplePanel appContent;
+
+    public AppLayout() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
+
+    public SimplePanel getAppContentHolder() {
+        return this.appContent;
+    }
 }

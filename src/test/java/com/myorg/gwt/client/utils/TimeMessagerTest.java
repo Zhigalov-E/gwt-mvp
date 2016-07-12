@@ -3,28 +3,29 @@ package com.myorg.gwt.client.utils;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.junit.client.GWTTestCase;
 import org.junit.Test;
+
 import java.util.Date;
 
 
 public class TimeMessagerTest extends GWTTestCase {
 
     @Test
-    public  void testGoodMorning() {
+    public void testGoodMorning() {
         checkMessageForLocale("06:00:00.000", "Доброе утро");
     }
 
     @Test
-    public  void testGoodDay() {
+    public void testGoodDay() {
         checkMessageForLocale("09:00:00.000", "Добрый день");
     }
 
     @Test
-    public  void testGoodEvening() {
+    public void testGoodEvening() {
         checkMessageForLocale("19:00:00.000", "Добрый вечер");
     }
 
     @Test
-    public  void testGoodNight() {
+    public void testGoodNight() {
         checkMessageForLocale("23:00:00.000", "Доброй ночи");
     }
 

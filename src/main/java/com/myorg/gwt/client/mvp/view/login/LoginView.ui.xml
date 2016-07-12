@@ -1,40 +1,40 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+             xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
 
-	<gwt:HTMLPanel>
-		<div class=".loginForm">
-			<gwt:VerticalPanel>
-				<gwt:Grid styleName="loginForm">
-					<gwt:row>
-						<gwt:customCell>
-							<gwt:Label text="Пользователь:" styleName="blackText"/>
-						</gwt:customCell>
-						<gwt:customCell>
-							<gwt:TextBox ui:field="loginBox" styleName="box"/>
-						</gwt:customCell>
-					</gwt:row>
-					<gwt:row>
-						<gwt:customCell>
-							<gwt:Label text="Пароль:" styleName="blackText"/>
-						</gwt:customCell>
-						<gwt:customCell>
-							<gwt:PasswordTextBox ui:field="passwordBox" styleName="box"/>
-						</gwt:customCell>
-					</gwt:row>
-					<gwt:row>
-						<gwt:cell></gwt:cell>
-						<gwt:customCell>
-							<gwt:Button ui:field="buttonSubmit" text="Войти"
-										styleName="loginButton">
-							</gwt:Button>
-						</gwt:customCell>
-					</gwt:row>
-				</gwt:Grid>
-			</gwt:VerticalPanel>
+    <gwt:HTMLPanel>
+        <div class=".loginForm">
+            <gwt:VerticalPanel>
+                <gwt:Grid styleName="loginForm">
+                    <gwt:row>
+                        <gwt:customCell>
+                            <gwt:Label text="Пользователь:" styleName="blackText"/>
+                        </gwt:customCell>
+                        <gwt:customCell>
+                            <gwt:TextBox ui:field="loginBox" styleName="box"/>
+                        </gwt:customCell>
+                    </gwt:row>
+                    <gwt:row>
+                        <gwt:customCell>
+                            <gwt:Label text="Пароль:" styleName="blackText"/>
+                        </gwt:customCell>
+                        <gwt:customCell>
+                            <gwt:PasswordTextBox ui:field="passwordBox" styleName="box"/>
+                        </gwt:customCell>
+                    </gwt:row>
+                    <gwt:row>
+                        <gwt:cell></gwt:cell>
+                        <gwt:customCell>
+                            <gwt:Button ui:field="buttonSubmit" text="Войти"
+                                        styleName="loginButton">
+                            </gwt:Button>
+                        </gwt:customCell>
+                    </gwt:row>
+                </gwt:Grid>
+            </gwt:VerticalPanel>
 
-		</div>
+        </div>
 
-	</gwt:HTMLPanel>
+    </gwt:HTMLPanel>
 </ui:UiBinder>
  

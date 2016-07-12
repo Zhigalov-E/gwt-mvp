@@ -12,26 +12,28 @@ import com.google.gwt.user.client.ui.Widget;
 import com.myorg.gwt.client.mvp.view.ILoginView;
 
 public class LoginView extends Composite implements ILoginView {
-	interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {	}
-	private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
-	
-	private ILoginPresenter presenter;
+    interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {
+    }
 
-	@UiField
-	Button buttonSubmit;
-	
-	public LoginView() {
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+    private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
 
-	@Override
-	public void setPresenter(ILoginPresenter presenter) {
-		this.presenter = presenter;
-	}
+    private ILoginPresenter presenter;
+
+    @UiField
+    Button buttonSubmit;
+
+    public LoginView() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
+
+    @Override
+    public void setPresenter(ILoginPresenter presenter) {
+        this.presenter = presenter;
+    }
 
 
-	@UiHandler("buttonSubmit")
-	void doClickSubmit(ClickEvent event) {
-		Window.Location.assign("#main:");
-	}
+    @UiHandler("buttonSubmit")
+    void doClickSubmit(ClickEvent event) {
+        Window.Location.assign("#main:");
+    }
 }

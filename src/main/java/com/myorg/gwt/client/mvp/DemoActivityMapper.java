@@ -10,20 +10,20 @@ import com.myorg.gwt.client.mvp.place.LoginPlace;
 import com.myorg.gwt.client.mvp.place.MainPlace;
 
 public class DemoActivityMapper implements ActivityMapper {
-	private ClientFactory clientFactory;
-	
-	public DemoActivityMapper(ClientFactory clientFactory) {
-		super();
-		this.clientFactory = clientFactory;
-	}
-	
-	@Override
-	public Activity getActivity(Place place) {
-		if (place instanceof MainPlace) {
-			return new MainActivity(clientFactory);
-		} else if (place instanceof LoginPlace) {
-			return new LoginActivity(clientFactory);
-		}
-		return null;
-	}
+    private ClientFactory clientFactory;
+
+    public DemoActivityMapper(ClientFactory clientFactory) {
+        super();
+        this.clientFactory = clientFactory;
+    }
+
+    @Override
+    public Activity getActivity(Place place) {
+        if (place instanceof MainPlace) {
+            return new MainActivity(clientFactory);
+        } else if (place instanceof LoginPlace) {
+            return new LoginActivity(clientFactory);
+        }
+        return null;
+    }
 }

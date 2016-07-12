@@ -24,7 +24,7 @@ public class User implements Serializable {
         this.hashPwd = hashPwd;
     }
 
-    public User (){
+    public User() {
     }
 
     public int getId() {

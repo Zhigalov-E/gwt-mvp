@@ -6,9 +6,11 @@ import com.myorg.gwt.client.mvp.view.ILoginView;
 import com.myorg.gwt.client.mvp.view.IMainView;
 
 public interface ClientFactory {
-	public EventBus getEventBus();
-	public PlaceController getPlaceController();
-	
-	public IMainView getMainView();
-	public ILoginView getLoginView();
+    public EventBus getEventBus();
+
+    public PlaceController getPlaceController();
+
+    public IMainView getMainView();
+
+    public ILoginView getLoginView();
 }

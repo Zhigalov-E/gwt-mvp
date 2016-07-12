@@ -1,29 +1,31 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-	
-	<gwt:DockLayoutPanel unit="PX">
-		<gwt:north size="150">
-			<gwt:HTMLPanel styleName="header">
-				<div id="header">
-					<a href="https://www.ardas.dp.ua/ru"><img src="resources/logo.png"></img></a>
-				</div>
-			</gwt:HTMLPanel>
-		</gwt:north>
-		
-		<gwt:center>
-			<gwt:SimplePanel  ui:field="appContent" />
-		</gwt:center>
+             xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
 
-		<gwt:south size="50">
-			<gwt:HTMLPanel styleName="footer">
-				<div id="footer">
-					© 2015 Ardas Group
-				</div>
-			</gwt:HTMLPanel>
-		</gwt:south>
+    <gwt:DockLayoutPanel unit="PX">
+        <gwt:north size="150">
+            <gwt:HTMLPanel styleName="header">
+                <div id="header">
+                    <a href="https://www.ardas.dp.ua/ru">
+                        <img src="resources/logo.png"></img>
+                    </a>
+                </div>
+            </gwt:HTMLPanel>
+        </gwt:north>
 
-	</gwt:DockLayoutPanel>
-	
+        <gwt:center>
+            <gwt:SimplePanel ui:field="appContent"/>
+        </gwt:center>
+
+        <gwt:south size="50">
+            <gwt:HTMLPanel styleName="footer">
+                <div id="footer">
+                    © 2015 Ardas Group
+                </div>
+            </gwt:HTMLPanel>
+        </gwt:south>
+
+    </gwt:DockLayoutPanel>
+
 </ui:UiBinder>
  

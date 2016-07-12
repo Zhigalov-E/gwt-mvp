@@ -30,12 +30,12 @@ public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRp
                 || !FieldVerifier.isValidName(password)) {
             IllegalArgumentException illegalArgumentException = new IllegalArgumentException(
                     "Name must be at least 3 characters long");
-            LOGGER.error("Not valid login or password",illegalArgumentException);
+            LOGGER.error("Not valid login or password", illegalArgumentException);
             throw illegalArgumentException;
         }
         UserDTO userDTO = new UserDTO();
         User user = userDAO.getUserByLogin(login);
-        if(user != null
+        if (user != null
                 && PasswordEncryptionService.authenticate(password, user.getHashPwd())) {
             LOGGER.info("Success login and password.");
             userDTO.setLoggedIn(true);

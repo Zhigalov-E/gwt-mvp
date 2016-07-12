@@ -8,6 +8,7 @@ import com.myorg.gwt.client.rpc.LoginRpcService;
 import com.myorg.gwt.client.rpc.LoginRpcServiceAsync;
 import com.myorg.gwt.shared.UserDTO;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 
 public class ServerTest extends GWTTestCase {
@@ -16,7 +17,7 @@ public class ServerTest extends GWTTestCase {
         return "com.myorg.gwt.server.MvpInActionJUnit";
     }
 
-//    @Test
+    @Test
     public void testLoginService() {
         // Create the service that we will test.
         LoginRpcServiceAsync loginService = GWT.create(LoginRpcService.class);
