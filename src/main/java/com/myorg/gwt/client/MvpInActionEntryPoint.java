@@ -7,18 +7,17 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
-import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.myorg.gwt.client.layout.AppLayout;
 import com.myorg.gwt.client.mvp.DemoActivityMapper;
 import com.myorg.gwt.client.mvp.DemoPlaceHistoryMapper;
-import com.myorg.gwt.client.mvp.place.MainPlace;
+import com.myorg.gwt.client.mvp.place.LoginPlace;
 
 
 public class MvpInActionEntryPoint implements EntryPoint {
     private SimplePanel containerWidget;
-    private MainPlace defaultPlace = new MainPlace();
+    private LoginPlace defaultPlace = new LoginPlace();
 
     @Override
     public void onModuleLoad() {
