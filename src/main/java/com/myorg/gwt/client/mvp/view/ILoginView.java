@@ -6,5 +6,6 @@ public interface ILoginView extends IsWidget {
     public void setPresenter(ILoginPresenter presenter);
 
     public interface ILoginPresenter {
+        void sendToServer(String login, String password);
     }
 }

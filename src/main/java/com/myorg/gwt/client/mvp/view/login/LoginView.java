@@ -2,6 +2,7 @@ package com.myorg.gwt.client.mvp.view.login;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -13,11 +14,14 @@ import com.myorg.gwt.client.i18n.AppMessages;
 import com.myorg.gwt.client.mvp.view.ILoginView;
 import com.myorg.gwt.client.mvp.view.css.LoginResources;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class LoginView extends Composite implements ILoginView {
     @UiTemplate("LoginView.ui.xml")
     interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {
     }
-
+    private static final Logger LOGGER = Logger.getLogger(LoginView.class.getName());
     private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
     private static final int MIN_PASSWORD_LEN = 4;
     private static final int MIN_LOGIN_LEN = 4;
@@ -74,6 +78,23 @@ public class LoginView extends Composite implements ILoginView {
         }
     }
 
+    @UiHandler("buttonSubmit")
+    public void onClick(ClickEvent clickEvent) {
+        if (getTooShort()) {
+            LOGGER.log(Level.WARNING, "Login or password too short.");
+            Window.alert(getI18n().loginOrPwd2Short());
+        } else {
+            LOGGER.log(Level.INFO, "Send user auth data to server.");
+            presenter.sendToServer(getLoginBox().getValue(), getPasswordBox().getValue());
+        }
+    }
+
+    /*@UiHandler("buttonSubmit")
+    void doClickSubmit(ClickEvent event) {
+
+        Window.Location.assign("#main:");
+    }*/
+
     @Override
     protected void onUnload() {
         this.loginBox.setText("");
@@ -96,10 +117,6 @@ public class LoginView extends Composite implements ILoginView {
         return result;
     }
 
-    @UiHandler("buttonSubmit")
-    void doClickSubmit(ClickEvent event) {
-        Window.Location.assign("#main:");
-    }
 
     public LoginResources getRes() {
         return res;

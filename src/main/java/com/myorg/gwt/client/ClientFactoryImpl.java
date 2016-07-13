@@ -3,6 +3,7 @@ package com.myorg.gwt.client;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.place.shared.PlaceController;
+import com.myorg.gwt.client.mvp.activity.LoginActivity;
 import com.myorg.gwt.client.mvp.view.ILoginView;
 import com.myorg.gwt.client.mvp.view.IMainView;
 import com.myorg.gwt.client.mvp.view.login.LoginView;
@@ -14,6 +15,7 @@ public class ClientFactoryImpl implements ClientFactory {
 
     private final IMainView mainView = new MainView();
     private final ILoginView loginView = new LoginView();
+
 
     @Override
     public EventBus getEventBus() {
