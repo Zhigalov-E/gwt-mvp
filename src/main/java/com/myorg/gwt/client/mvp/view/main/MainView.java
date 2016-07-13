@@ -41,6 +41,11 @@ public class MainView extends Composite implements IMainView {
         userGreeting.setText(greeting + ", Иван.");
     }
 
+    @Override
+    public void onLoad() {
+        setGreeting();
+    }
+
     public void setPresenter(IMainPresenter presenter) {
         this.presenter = presenter;
     }

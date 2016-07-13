@@ -4,7 +4,7 @@
     <ui:style>
 
     </ui:style>
-    <gwt:HTMLPanel>
+    <gwt:HTMLPanel styleName="greetingBox">
         <br></br>
         <br></br>
         <br></br>

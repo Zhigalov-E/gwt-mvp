@@ -74,6 +74,11 @@ public class LoginView extends Composite implements ILoginView {
         }
     }
 
+    @Override
+    protected void onUnload() {
+        this.loginBox.setText("");
+        this.passwordBox.setText("");
+    }
 
     private boolean checkLoginLength(String login) {
         boolean result = false;
