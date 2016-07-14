@@ -3,9 +3,13 @@ package com.myorg.gwt.client.mvp.view;
 import com.google.gwt.user.client.ui.IsWidget;
 
 public interface ILoginView extends IsWidget {
-    public void setPresenter(ILoginPresenter presenter);
 
-    public interface ILoginPresenter {
+    void setPresenter(ILoginPresenter presenter);
+
+
+    interface ILoginPresenter {
         void sendToServer(String login, String password);
+
+        void checkWithServerIfSessionIdIsStillLegal();
     }
 }

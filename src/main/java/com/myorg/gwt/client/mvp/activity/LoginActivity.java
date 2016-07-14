@@ -6,15 +6,12 @@ import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.myorg.gwt.client.AppConstants;
 import com.myorg.gwt.client.ClientFactory;
-import com.myorg.gwt.client.MvpInActionEntryPoint;
 import com.myorg.gwt.client.i18n.AppMessages;
+import com.myorg.gwt.client.mvp.place.MainPlace;
 import com.myorg.gwt.client.mvp.view.ILoginView;
-import com.myorg.gwt.client.mvp.view.main.MainView;
 import com.myorg.gwt.client.rpc.LoginRpcService;
-import com.myorg.gwt.client.utils.TimeMessager;
 import com.myorg.gwt.shared.UserDTO;
 
 import java.util.Date;
@@ -46,7 +43,7 @@ public class LoginActivity extends AbstractMainActivity implements ILoginView.IL
                 if (result.getLoggedIn()) {
                     LOGGER.log(Level.INFO, "Success login operation.");
                     // load the home app page
-                    showHomePage(result);
+                    initAndGoToUserPage(result);
                     //set session cookie for 1 day expiry.
                     String sessionID = result.getSessionId();
                     final long DURATION = 1000 * 60 * 60 * 24 * 1;
@@ -66,13 +63,29 @@ public class LoginActivity extends AbstractMainActivity implements ILoginView.IL
         });
     }
 
-    public void showHomePage(UserDTO userDTO) {
-        String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
-        String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
-        MainView mainView = (MainView)clientFactory.getMainView();
-        mainView.getUserGreeting().setText(userGreeting);
+    @Override
+    public void checkWithServerIfSessionIdIsStillLegal() {
+        LoginRpcService.Util.getInstance().loginFromSessionServer(new AsyncCallback<UserDTO>() {
+            @Override
+            public void onFailure(Throwable caught) {
+                LOGGER.log(Level.SEVERE, "Error with check login session.", caught);
+            }
 
-        Window.Location.assign("#main:");
+            @Override
+            public void onSuccess(UserDTO result) {
+                if (result != null && result.getLoggedIn()) {
+                    LOGGER.log(Level.INFO, "User session is still valid.");
+                    initAndGoToUserPage(result);
+                } else {
+                    LOGGER.log(Level.INFO, "User session has expired.");
+                }
+            }
+        });
+    }
+
+    private void initAndGoToUserPage(UserDTO result) {
+        clientFactory.getMainView().initHomePage(result);
+        clientFactory.getPlaceController().goTo(new MainPlace());
     }
 
     public AppMessages getI18n() {

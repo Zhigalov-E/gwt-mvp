@@ -89,12 +89,6 @@ public class LoginView extends Composite implements ILoginView {
         }
     }
 
-    /*@UiHandler("buttonSubmit")
-    void doClickSubmit(ClickEvent event) {
-
-        Window.Location.assign("#main:");
-    }*/
-
     @Override
     protected void onUnload() {
         this.loginBox.setText("");

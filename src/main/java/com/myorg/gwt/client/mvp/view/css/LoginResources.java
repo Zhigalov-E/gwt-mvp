@@ -9,6 +9,7 @@ public interface LoginResources extends ClientBundle {
     @Source("com/myorg/gwt/client/mvp/view/css/Login.css")
     MyCss style();
 
+
     interface MyCss extends CssResource {
         String blackText();
 
@@ -21,6 +22,5 @@ public interface LoginResources extends ClientBundle {
         String background();
 
         String loginForm();
-
     }
 }

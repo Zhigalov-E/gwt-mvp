@@ -1,10 +1,13 @@
 package com.myorg.gwt.client.mvp.view;
 
 import com.google.gwt.user.client.ui.IsWidget;
+import com.myorg.gwt.shared.UserDTO;
 
 public interface IMainView extends IsWidget {
-    public void setPresenter(IMainPresenter presenter);
+    void setPresenter(IMainPresenter presenter);
+    void initHomePage(UserDTO result);
 
-    public interface IMainPresenter {
+
+    interface IMainPresenter {
     }
 }

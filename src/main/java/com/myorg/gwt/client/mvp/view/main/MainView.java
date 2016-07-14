@@ -12,7 +12,10 @@ import com.google.gwt.user.client.ui.*;
 import com.myorg.gwt.client.i18n.AppMessages;
 import com.myorg.gwt.client.mvp.view.IMainView;
 import com.myorg.gwt.client.rpc.LoginRpcService;
+import com.myorg.gwt.client.utils.TimeMessager;
+import com.myorg.gwt.shared.UserDTO;
 
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,16 +40,6 @@ public class MainView extends Composite implements IMainView {
         initWidget(uiBinder.createAndBindUi(this));
     }
 
-    public void setGreeting() {
-        //String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
-        //userGreeting.setText(greeting + ", Иван.");
-    }
-
-    @Override
-    public void onLoad() {
-        setGreeting();
-    }
-
     @UiHandler("logOut")
     public void onClick(ClickEvent clickEvent) {
         LoginRpcService.Util.getInstance().logout(new AsyncCallback() {
@@ -62,6 +55,13 @@ public class MainView extends Composite implements IMainView {
                 goToLogin();
             }
         });
+    }
+
+    public void initHomePage(UserDTO userDTO) {
+        String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
+        String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
+        this.getUserGreeting().setText(userGreeting);
+        // Window.Location.assign("#main:");
     }
 
     public void setPresenter(IMainPresenter presenter) {
