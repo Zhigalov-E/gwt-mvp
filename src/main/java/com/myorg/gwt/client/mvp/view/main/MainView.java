@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.google.inject.Inject;
 import com.myorg.gwt.client.i18n.AppMessages;
 import com.myorg.gwt.client.mvp.view.IMainView;
 import com.myorg.gwt.client.rpc.LoginRpcService;
@@ -35,8 +36,9 @@ public class MainView extends Composite implements IMainView {
     @UiField
     Label userGreeting;
 
-    public MainView() {
-        this.i18n = GWT.create(AppMessages.class);
+    @Inject
+    public MainView(final AppMessages i18n) {
+        this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
     }
 

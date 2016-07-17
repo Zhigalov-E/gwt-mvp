@@ -11,6 +11,7 @@ import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.myorg.gwt.client.ioc.ApplicationGinjector;
 import com.myorg.gwt.client.layout.AppLayout;
 import com.myorg.gwt.client.mvp.DemoActivityMapper;
 import com.myorg.gwt.client.mvp.DemoPlaceHistoryMapper;
@@ -20,12 +21,17 @@ import com.myorg.gwt.client.mvp.place.LoginPlace;
 
 public class MvpInActionEntryPoint implements EntryPoint {
 
+    private static ApplicationGinjector injector = GWT.create(ApplicationGinjector.class);
+
     private SimplePanel containerWidget;
-    private Place defaultPlace = new LoginPlace();
-    private final ClientFactory clientFactory = GWT.create(ClientFactory.class);
+
+
 
     @Override
     public void onModuleLoad() {
+        ClientFactory clientFactory = injector.getClientFactory();
+        Place defaultPlace = new LoginPlace();
+
         final AppLayout mainLayout = new AppLayout();
         containerWidget = mainLayout.getAppContentHolder();
 

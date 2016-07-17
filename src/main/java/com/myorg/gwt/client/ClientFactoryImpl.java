@@ -1,21 +1,25 @@
 package com.myorg.gwt.client;
 
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.place.shared.PlaceController;
-import com.myorg.gwt.client.mvp.activity.LoginActivity;
+import com.google.inject.Inject;
 import com.myorg.gwt.client.mvp.view.ILoginView;
 import com.myorg.gwt.client.mvp.view.IMainView;
-import com.myorg.gwt.client.mvp.view.login.LoginView;
-import com.myorg.gwt.client.mvp.view.main.MainView;
 
 public class ClientFactoryImpl implements ClientFactory {
-    private final EventBus eventBus = new SimpleEventBus();
-    private final PlaceController placeController = new PlaceController(eventBus);
+    private EventBus eventBus;
+    private PlaceController placeController;
 
-    private final IMainView mainView = new MainView();
-    private final ILoginView loginView = new LoginView();
+    private IMainView mainView;
+    private ILoginView loginView;
 
+    @Inject
+    public ClientFactoryImpl(final EventBus eventBus, final PlaceController placeController, final IMainView mainView, ILoginView loginView) {
+        this.eventBus = eventBus;
+        this.placeController = placeController;
+        this.mainView = mainView;
+        this.loginView = loginView;
+    }
 
     @Override
     public EventBus getEventBus() {

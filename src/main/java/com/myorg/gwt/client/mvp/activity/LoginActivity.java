@@ -6,6 +6,7 @@ import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.inject.Inject;
 import com.myorg.gwt.client.AppConstants;
 import com.myorg.gwt.client.ClientFactory;
 import com.myorg.gwt.client.i18n.AppMessages;
@@ -19,10 +20,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginActivity extends AbstractMainActivity implements ILoginView.ILoginPresenter {
+    public static final long DURATION = 1000 * 60 * 60 * 24 * 1;
     private static final Logger LOGGER = Logger.getLogger(LoginActivity.class.getName());
+    public static final String SID = "sid";
 
     private ClientFactory clientFactory;
     private final AppMessages i18n = GWT.create(AppMessages.class);
+
+    @Inject
     public LoginActivity(ClientFactory clientFactory) {
         this.clientFactory = clientFactory;
     }
@@ -46,9 +51,8 @@ public class LoginActivity extends AbstractMainActivity implements ILoginView.IL
                     initAndGoToUserPage(result);
                     //set session cookie for 1 day expiry.
                     String sessionID = result.getSessionId();
-                    final long DURATION = 1000 * 60 * 60 * 24 * 1;
                     Date expires = new Date(System.currentTimeMillis() + DURATION);
-                    Cookies.setCookie("sid", sessionID, expires, null, "/", false);
+                    Cookies.setCookie(SID, sessionID, expires, null, "/", false);
                 } else {
                     LOGGER.log(Level.WARNING, "Access Denied. Wrong login or password.");
                     Window.alert(getI18n().accessDenied());

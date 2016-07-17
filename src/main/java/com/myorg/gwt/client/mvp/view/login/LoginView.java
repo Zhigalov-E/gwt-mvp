@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
+import com.google.inject.Inject;
 import com.myorg.gwt.client.i18n.AppMessages;
 import com.myorg.gwt.client.mvp.view.ILoginView;
 import com.myorg.gwt.client.mvp.view.css.LoginResources;
@@ -44,10 +45,10 @@ public class LoginView extends Composite implements ILoginView {
     @UiField
     Button buttonSubmit;
 
-    public LoginView() {
-        this.res = GWT.create(LoginResources.class);
-        this.i18n = GWT.create(AppMessages.class);
-        res.style().ensureInjected();
+    @Inject
+    public LoginView(final AppMessages i18n, final LoginResources res) {
+        this.res = res;
+        this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
     }
 
