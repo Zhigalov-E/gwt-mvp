@@ -11,6 +11,11 @@
 
     <extend-property name="locale" values="ru"/>
     <extend-property name="locale" values="en"/>
+    <set-configuration-property name="locale.useragent" value="Y"/>
+
+    <inherits name="com.google.gwt.logging.Logging"/>
+    <set-property name="gwt.logging.logLevel" value="INFO"/>
+    <set-property name="gwt.logging.enabled" value="TRUE"/>
 
     <entry-point class='com.myorg.gwt.client.MvpInActionEntryPoint'/>
 
