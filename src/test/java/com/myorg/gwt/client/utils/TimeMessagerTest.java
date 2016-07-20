@@ -35,6 +35,6 @@ public class TimeMessagerTest extends GWTTestCase {
     }
 
     public String getModuleName() {
-        return "com.myorg.gwt.MvpInAction";
+        return "com.myorg.gwt.client.utils.MvpInActionJUnitRu";
     }
 }

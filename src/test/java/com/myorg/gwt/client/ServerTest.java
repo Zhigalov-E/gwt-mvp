@@ -1,4 +1,4 @@
-package com.myorg.gwt.server;
+package com.myorg.gwt.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;
@@ -12,10 +12,6 @@ import org.junit.Test;
 
 
 public class ServerTest extends GWTTestCase {
-
-    public String getModuleName() {
-        return "com.myorg.gwt.server.MvpInActionJUnit";
-    }
 
     @Test
     public void testLoginService() {
@@ -40,5 +36,9 @@ public class ServerTest extends GWTTestCase {
                 finishTest();
             }
         });
+    }
+
+    public String getModuleName() {
+        return "com.myorg.gwt.client.MvpInActionJUnit";
     }
 }
