@@ -30,6 +30,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>gwt-mvp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
