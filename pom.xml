@@ -53,7 +53,7 @@
                     <modules>
                         <module>com.myorg.gwt.MvpInAction</module>
                     </modules>
-                    <runTarget>index.html</runTarget>
+                    <runTarget>index.jsp</runTarget>
                     <compileReport>true</compileReport>
                     <mode>htmlunit</mode>
                     <includes>**/Test*.java,**/*Test.java,**/*TestCase.java</includes>

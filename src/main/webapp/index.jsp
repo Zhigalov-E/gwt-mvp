@@ -5,8 +5,8 @@
     <link type="text/css" rel="stylesheet" href="MvpInAction.css">
 
     <title>MVP in GWT</title>
-
     <script type="text/javascript" language="javascript" src="mvpinaction/mvpinaction.nocache.js"></script>
+    <meta name="gwt:property" content="locale=<%=request.getLocale()%>">
 </head>
 <body>
 <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
