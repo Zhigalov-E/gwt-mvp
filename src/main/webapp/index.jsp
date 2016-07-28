@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href="MvpInAction.css">
 
     <title>MVP in GWT</title>
-    <script type="text/javascript" language="javascript" src="mvpinaction/mvpinaction.nocache.js"></script>
+    <script type="text/javascript" language="javascript" src="Login/Login.nocache.js"></script>
 </head>
 <body>
 <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'

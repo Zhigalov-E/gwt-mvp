@@ -12,6 +12,6 @@
         <property name="hibernate.connection.password">1</property>
         <property name="hibernate.connection.url">jdbc:hsqldb:mem:userDb</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
-        <mapping class="com.myorg.gwt.server.entity.User"></mapping>
+        <mapping class="com.myorg.gwt.login.server.entity.User"></mapping>
     </session-factory>
 </hibernate-configuration>
