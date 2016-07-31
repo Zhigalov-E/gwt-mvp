@@ -1,4 +1,4 @@
-package com.myorg.gwt.login.client.mvp.place;
+package com.myorg.gwt.main.client.mvp.place;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;

@@ -1,4 +1,4 @@
-package com.myorg.gwt.login.client.mvp.view.main;
+package com.myorg.gwt.main.client.mvp.view.main;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -11,7 +11,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.login.client.mvp.view.IMainView;
+import com.myorg.gwt.main.client.mvp.view.IMainView;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;

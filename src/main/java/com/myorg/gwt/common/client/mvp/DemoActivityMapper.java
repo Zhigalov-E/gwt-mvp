@@ -5,9 +5,9 @@ import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
-import com.myorg.gwt.login.client.mvp.activity.MainActivity;
+import com.myorg.gwt.main.client.mvp.activity.MainActivity;
 import com.myorg.gwt.login.client.mvp.place.LoginPlace;
-import com.myorg.gwt.login.client.mvp.place.MainPlace;
+import com.myorg.gwt.main.client.mvp.place.MainPlace;
 
 public class DemoActivityMapper implements ActivityMapper {
     private ClientFactory clientFactory;

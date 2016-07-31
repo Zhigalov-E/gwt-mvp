@@ -10,7 +10,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.login.client.mvp.place.MainPlace;
+import com.myorg.gwt.main.client.mvp.place.MainPlace;
 import com.myorg.gwt.login.client.mvp.view.ILoginView;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.shared.UserDTO;

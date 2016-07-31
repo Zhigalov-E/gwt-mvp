@@ -1,11 +1,11 @@
-package com.myorg.gwt.login.client.mvp.activity;
+package com.myorg.gwt.main.client.mvp.activity;
 
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.myorg.gwt.login.client.ClientFactory;
-import com.myorg.gwt.login.client.mvp.view.IMainView;
+import com.myorg.gwt.main.client.mvp.view.IMainView;
 
 public class MainActivity extends AbstractActivity implements IMainView.IMainPresenter {
     private ClientFactory clientFactory;

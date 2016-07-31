@@ -5,12 +5,12 @@ import com.google.inject.Singleton;
 import com.myorg.gwt.common.client.ioc.ApplicationGinModule;
 
 import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
-import com.myorg.gwt.login.client.mvp.activity.MainActivity;
+import com.myorg.gwt.main.client.mvp.activity.MainActivity;
 
 import com.myorg.gwt.login.client.mvp.view.ILoginView;
-import com.myorg.gwt.login.client.mvp.view.IMainView;
+import com.myorg.gwt.main.client.mvp.view.IMainView;
 import com.myorg.gwt.login.client.mvp.view.login.LoginView;
-import com.myorg.gwt.login.client.mvp.view.main.MainView;
+import com.myorg.gwt.main.client.mvp.view.main.MainView;
 
 
 public class LoginGinModule extends ApplicationGinModule {

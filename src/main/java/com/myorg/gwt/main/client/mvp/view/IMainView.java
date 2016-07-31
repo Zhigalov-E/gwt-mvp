@@ -1,4 +1,4 @@
-package com.myorg.gwt.login.client.mvp.view;
+package com.myorg.gwt.main.client.mvp.view;
 
 import com.google.gwt.user.client.ui.IsWidget;
 import com.myorg.gwt.common.shared.UserDTO;

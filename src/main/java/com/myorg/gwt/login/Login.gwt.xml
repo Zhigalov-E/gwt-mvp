@@ -4,6 +4,7 @@
         "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='Login'>
     <inherits name="com.myorg.gwt.common.Common"/>
+    <inherits name="com.myorg.gwt.main.Main"/>
 
     <entry-point class="com.myorg.gwt.login.client.LoginEntryPoint"/>
 

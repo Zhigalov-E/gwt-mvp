@@ -4,7 +4,7 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.inject.Inject;
 import com.myorg.gwt.login.client.mvp.view.ILoginView;
-import com.myorg.gwt.login.client.mvp.view.IMainView;
+import com.myorg.gwt.main.client.mvp.view.IMainView;
 
 public class ClientFactoryImpl implements ClientFactory {
     private EventBus eventBus;
