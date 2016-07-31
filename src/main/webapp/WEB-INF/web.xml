@@ -5,12 +5,12 @@
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
     <listener>
-        <listener-class>com.myorg.gwt.login.server.utils.HibernateListener</listener-class>
+        <listener-class>com.myorg.gwt.common.server.utils.HibernateListener</listener-class>
     </listener>
     <!-- Servlets -->
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>com.myorg.gwt.login.server.LoginRpcServiceImpl</servlet-class>
+        <servlet-class>com.myorg.gwt.common.server.LoginRpcServiceImpl</servlet-class>
     </servlet>
 
     <servlet-mapping>

@@ -1,6 +1,6 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
-    <ui:with type="com.myorg.gwt.login.client.i18n.AppMessages" field="i18n"/>
+    <ui:with type="com.myorg.gwt.common.client.i18n.AppMessages" field="i18n"/>
     <ui:style>
 
     </ui:style>

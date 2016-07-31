@@ -2,7 +2,7 @@
              xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
 
     <ui:with type="com.myorg.gwt.login.client.mvp.view.css.LoginResources" field="res"/>
-    <ui:with type="com.myorg.gwt.login.client.i18n.AppMessages" field="i18n"/>
+    <ui:with type="com.myorg.gwt.common.client.i18n.AppMessages" field="i18n"/>
 
     <gwt:HTMLPanel>
         <div class="{res.style.loginForm}">

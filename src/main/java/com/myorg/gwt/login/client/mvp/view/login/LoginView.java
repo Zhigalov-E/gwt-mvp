@@ -2,7 +2,6 @@ package com.myorg.gwt.login.client.mvp.view.login;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -11,7 +10,7 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
-import com.myorg.gwt.login.client.i18n.AppMessages;
+import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.login.client.mvp.view.ILoginView;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
 

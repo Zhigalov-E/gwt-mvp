@@ -1,5 +1,6 @@
 package com.myorg.gwt.login.client.mvp.activity;
 
+import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.Cookies;
@@ -7,19 +8,18 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
-import com.myorg.gwt.login.client.AppConstants;
 import com.myorg.gwt.login.client.ClientFactory;
-import com.myorg.gwt.login.client.i18n.AppMessages;
+import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.login.client.mvp.place.MainPlace;
 import com.myorg.gwt.login.client.mvp.view.ILoginView;
-import com.myorg.gwt.login.client.rpc.LoginRpcService;
-import com.myorg.gwt.login.shared.UserDTO;
+import com.myorg.gwt.common.client.rpc.LoginRpcService;
+import com.myorg.gwt.common.shared.UserDTO;
 
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoginActivity extends AbstractMainActivity implements ILoginView.ILoginPresenter {
+public class LoginActivity extends AbstractActivity implements ILoginView.ILoginPresenter {
     public static final long DURATION = 1000 * 60 * 60 * 24 * 1;
     private static final Logger LOGGER = Logger.getLogger(LoginActivity.class.getName());
     public static final String SID = "sid";
@@ -34,8 +34,6 @@ public class LoginActivity extends AbstractMainActivity implements ILoginView.IL
 
     @Override
     public void start(AcceptsOneWidget container, EventBus eventBus) {
-        applyCurrentLinkStyle(AppConstants.LOGIN_LINK_ID);
-
         final ILoginView view = clientFactory.getLoginView();
         view.setPresenter(this);
         container.setWidget(view.asWidget());

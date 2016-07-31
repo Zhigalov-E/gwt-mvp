@@ -11,17 +11,17 @@ import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
-import com.myorg.gwt.login.client.ioc.ApplicationGinjector;
-import com.myorg.gwt.login.client.layout.AppLayout;
-import com.myorg.gwt.login.client.mvp.DemoActivityMapper;
-import com.myorg.gwt.login.client.mvp.DemoPlaceHistoryMapper;
+import com.myorg.gwt.login.client.ioc.LoginGinjector;
+import com.myorg.gwt.common.client.layout.AppLayout;
+import com.myorg.gwt.common.client.mvp.DemoActivityMapper;
+import com.myorg.gwt.common.client.mvp.DemoPlaceHistoryMapper;
 import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
 import com.myorg.gwt.login.client.mvp.place.LoginPlace;
 
 
 public class LoginEntryPoint implements EntryPoint {
 
-    private static ApplicationGinjector injector = GWT.create(ApplicationGinjector.class);
+    private static LoginGinjector injector = GWT.create(LoginGinjector.class);
 
     private SimplePanel containerWidget;
 
