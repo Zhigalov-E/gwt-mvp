@@ -10,11 +10,7 @@ import com.google.inject.Singleton;
 import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.login.client.ClientFactoryImpl;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
-import com.myorg.gwt.login.client.mvp.activity.MainActivity;
-import com.myorg.gwt.login.client.mvp.place.InjectablePlaceController;
-import com.myorg.gwt.login.client.mvp.view.ILoginView;
-import com.myorg.gwt.login.client.mvp.view.IMainView;
+import com.myorg.gwt.common.client.mvp.place.InjectablePlaceController;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
 
 
