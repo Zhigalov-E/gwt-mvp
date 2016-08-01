@@ -2,7 +2,7 @@ package com.myorg.gwt.login.client.mvp.view;
 
 import com.google.gwt.user.client.ui.IsWidget;
 
-public interface ILoginView extends IsWidget {
+public interface LoginView extends IsWidget {
 
     void setPresenter(ILoginPresenter presenter);
 

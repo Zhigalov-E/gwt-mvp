@@ -11,17 +11,16 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.login.client.mvp.view.ILoginView;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoginView extends Composite implements ILoginView {
-    @UiTemplate("LoginView.ui.xml")
-    interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {
+public class LoginViewImpl extends Composite implements com.myorg.gwt.login.client.mvp.view.LoginView {
+    @UiTemplate("LoginViewImpl.ui.xml")
+    interface LoginViewUiBinder extends UiBinder<Widget, LoginViewImpl> {
     }
-    private static final Logger LOGGER = Logger.getLogger(LoginView.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(LoginViewImpl.class.getName());
     private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
     private static final int MIN_PASSWORD_LEN = 4;
     private static final int MIN_LOGIN_LEN = 4;
@@ -45,7 +44,7 @@ public class LoginView extends Composite implements ILoginView {
     Button buttonSubmit;
 
     @Inject
-    public LoginView(final AppMessages i18n, final LoginResources res) {
+    public LoginViewImpl(final AppMessages i18n, final LoginResources res) {
         this.res = res;
         this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));

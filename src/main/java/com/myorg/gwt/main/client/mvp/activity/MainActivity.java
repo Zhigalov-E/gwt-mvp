@@ -5,9 +5,9 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.myorg.gwt.login.client.ClientFactory;
-import com.myorg.gwt.main.client.mvp.view.IMainView;
+import com.myorg.gwt.main.client.mvp.view.MainView;
 
-public class MainActivity extends AbstractActivity implements IMainView.IMainPresenter {
+public class MainActivity extends AbstractActivity implements MainView.IMainPresenter {
     private ClientFactory clientFactory;
 
     @Inject
@@ -17,7 +17,7 @@ public class MainActivity extends AbstractActivity implements IMainView.IMainPre
 
     @Override
     public void start(AcceptsOneWidget container, EventBus eventBus) {
-        final IMainView view = clientFactory.getMainView();
+        final MainView view = clientFactory.getMainView();
         view.setPresenter(this);
         container.setWidget(view.asWidget());
     }

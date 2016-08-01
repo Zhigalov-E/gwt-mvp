@@ -11,7 +11,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.main.client.mvp.view.IMainView;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;
@@ -20,11 +19,11 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainView extends Composite implements IMainView {
-    @UiTemplate("MainView.ui.xml")
-    interface MainViewUiBinder extends UiBinder<Widget, MainView> {
+public class MainViewImpl extends Composite implements com.myorg.gwt.main.client.mvp.view.MainView {
+    @UiTemplate("MainViewImpl.ui.xml")
+    interface MainViewUiBinder extends UiBinder<Widget, MainViewImpl> {
     }
-    private static final Logger LOGGER = Logger.getLogger(MainView.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MainViewImpl.class.getName());
     private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
 
     private IMainPresenter presenter;
@@ -37,7 +36,7 @@ public class MainView extends Composite implements IMainView {
     Label userGreeting;
 
     @Inject
-    public MainView(final AppMessages i18n) {
+    public MainViewImpl(final AppMessages i18n) {
         this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
     }

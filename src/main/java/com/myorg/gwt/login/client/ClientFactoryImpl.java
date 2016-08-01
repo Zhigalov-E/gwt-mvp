@@ -3,18 +3,18 @@ package com.myorg.gwt.login.client;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.inject.Inject;
-import com.myorg.gwt.login.client.mvp.view.ILoginView;
-import com.myorg.gwt.main.client.mvp.view.IMainView;
+import com.myorg.gwt.login.client.mvp.view.LoginView;
+import com.myorg.gwt.main.client.mvp.view.MainView;
 
 public class ClientFactoryImpl implements ClientFactory {
     private EventBus eventBus;
     private PlaceController placeController;
 
-    private IMainView mainView;
-    private ILoginView loginView;
+    private MainView mainView;
+    private LoginView loginView;
 
     @Inject
-    public ClientFactoryImpl(final EventBus eventBus, final PlaceController placeController, final IMainView mainView, ILoginView loginView) {
+    public ClientFactoryImpl(final EventBus eventBus, final PlaceController placeController, final MainView mainView, LoginView loginView) {
         this.eventBus = eventBus;
         this.placeController = placeController;
         this.mainView = mainView;
@@ -32,12 +32,12 @@ public class ClientFactoryImpl implements ClientFactory {
     }
 
     @Override
-    public IMainView getMainView() {
+    public MainView getMainView() {
         return mainView;
     }
 
     @Override
-    public ILoginView getLoginView() {
+    public LoginView getLoginView() {
         return loginView;
     }
 }

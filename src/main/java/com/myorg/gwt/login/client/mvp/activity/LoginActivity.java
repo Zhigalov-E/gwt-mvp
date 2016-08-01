@@ -11,7 +11,7 @@ import com.google.inject.Inject;
 import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.main.client.mvp.place.MainPlace;
-import com.myorg.gwt.login.client.mvp.view.ILoginView;
+import com.myorg.gwt.login.client.mvp.view.LoginView;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.shared.UserDTO;
 
@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoginActivity extends AbstractActivity implements ILoginView.ILoginPresenter {
+public class LoginActivity extends AbstractActivity implements LoginView.ILoginPresenter {
     public static final long DURATION = 1000 * 60 * 60 * 24 * 1;
     private static final Logger LOGGER = Logger.getLogger(LoginActivity.class.getName());
     public static final String SID = "sid";
@@ -34,7 +34,7 @@ public class LoginActivity extends AbstractActivity implements ILoginView.ILogin
 
     @Override
     public void start(AcceptsOneWidget container, EventBus eventBus) {
-        final ILoginView view = clientFactory.getLoginView();
+        final LoginView view = clientFactory.getLoginView();
         view.setPresenter(this);
         container.setWidget(view.asWidget());
     }
