@@ -5,9 +5,10 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.myorg.gwt.login.client.ClientFactory;
+import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.view.MainView;
 
-public class MainActivity extends AbstractActivity implements MainView.IMainPresenter {
+public class MainActivity extends AbstractActivity implements MainPresenter {
     private ClientFactory clientFactory;
 
     @Inject

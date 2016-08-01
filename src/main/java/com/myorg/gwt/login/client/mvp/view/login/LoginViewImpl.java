@@ -11,6 +11,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
 import com.myorg.gwt.common.client.i18n.AppMessages;
+import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
 
 import java.util.logging.Level;
@@ -25,7 +26,7 @@ public class LoginViewImpl extends Composite implements com.myorg.gwt.login.clie
     private static final int MIN_PASSWORD_LEN = 4;
     private static final int MIN_LOGIN_LEN = 4;
 
-    private ILoginPresenter presenter;
+    private LoginPresenter presenter;
 
     private Boolean tooShort = true;
     @UiField(provided = true)
@@ -51,7 +52,7 @@ public class LoginViewImpl extends Composite implements com.myorg.gwt.login.clie
     }
 
     @Override
-    public void setPresenter(ILoginPresenter presenter) {
+    public void setPresenter(LoginPresenter presenter) {
         this.presenter = presenter;
     }
 

@@ -1,15 +1,11 @@
 package com.myorg.gwt.login.client.mvp.view;
 
 import com.google.gwt.user.client.ui.IsWidget;
+import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
+
 
 public interface LoginView extends IsWidget {
 
-    void setPresenter(ILoginPresenter presenter);
+    void setPresenter(LoginPresenter presenter);
 
-
-    interface ILoginPresenter {
-        void sendToServer(String login, String password);
-
-        void checkWithServerIfSessionIdIsStillLegal();
-    }
 }

@@ -14,6 +14,7 @@ import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;
+import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -26,7 +27,7 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
     private static final Logger LOGGER = Logger.getLogger(MainViewImpl.class.getName());
     private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
 
-    private IMainPresenter presenter;
+    private MainPresenter presenter;
 
     @UiField(provided = true)
     final AppMessages i18n;
@@ -65,7 +66,7 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
         // Window.Location.assign("#main:");
     }
 
-    public void setPresenter(IMainPresenter presenter) {
+    public void setPresenter(MainPresenter presenter) {
         this.presenter = presenter;
     }
 
