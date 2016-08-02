@@ -52,7 +52,7 @@
                 </executions>
                 <configuration>
                     <modules>
-                        <module>com.myorg.gwt.login.Login</module>
+                        <module>com.myorg.gwt.application.Application</module>
                     </modules>
                     <runTarget>index.jsp</runTarget>
                     <compileReport>true</compileReport>

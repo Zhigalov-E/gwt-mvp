@@ -1,4 +1,4 @@
-package com.myorg.gwt.common.client.mvp;
+package com.myorg.gwt.application.client.mvp;
 
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.place.shared.WithTokenizers;

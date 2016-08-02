@@ -9,9 +9,7 @@ import com.google.gwt.place.shared.PlaceController;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.myorg.gwt.common.client.i18n.AppMessages;
-import com.myorg.gwt.common.client.mvp.DemoActivityMapper;
-import com.myorg.gwt.common.client.mvp.place.InjectablePlaceController;
-import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
+import com.myorg.gwt.application.client.mvp.DemoActivityMapper;
 
 
 public class ApplicationGinModule extends AbstractGinModule {
@@ -30,11 +28,4 @@ public class ApplicationGinModule extends AbstractGinModule {
         return GWT.create(AppMessages.class);
     }
 
-    @Provides
-    @Singleton
-    LoginResources createLoginResources() {
-        LoginResources loginResources = GWT.create(LoginResources.class);
-        loginResources.style().ensureInjected();
-        return loginResources;
-    }
 }

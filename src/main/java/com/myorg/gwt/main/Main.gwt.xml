@@ -2,9 +2,8 @@
         "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module>
 
-    <inherits name='com.google.gwt.user.User'/>
     <inherits name="com.myorg.gwt.common.Common"/>
 
     <entry-point class='com.myorg.gwt.main.client.MainEntryPoint'/>
-
+    <source path='client'/>
 </module>

@@ -1,10 +1,9 @@
-package com.myorg.gwt.common.client.mvp;
+package com.myorg.gwt.application.client.mvp;
 
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
-import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
 import com.myorg.gwt.main.client.mvp.activity.MainActivity;
 import com.myorg.gwt.login.client.mvp.place.LoginPlace;

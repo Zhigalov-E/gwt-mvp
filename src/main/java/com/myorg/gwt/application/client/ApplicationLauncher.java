@@ -1,4 +1,4 @@
-package com.myorg.gwt.login.client;
+package com.myorg.gwt.application.client;
 
 
 import com.google.gwt.activity.shared.ActivityManager;
@@ -10,18 +10,17 @@ import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.myorg.gwt.application.client.ioc.AppGinjector;
 import com.myorg.gwt.common.client.layout.AppLayout;
-import com.myorg.gwt.common.client.mvp.DemoPlaceHistoryMapper;
-import com.myorg.gwt.login.client.ioc.LoginGinjector;
+import com.myorg.gwt.application.client.mvp.DemoPlaceHistoryMapper;
 import com.myorg.gwt.login.client.mvp.place.LoginPlace;
 import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
 
 import javax.inject.Inject;
 
-public class Initializer {
+public class ApplicationLauncher {
 
-
-    private static LoginGinjector injector = GWT.create(LoginGinjector.class);
+    private static AppGinjector injector = GWT.create(AppGinjector.class);
 
     private SimplePanel containerWidget;
 
@@ -40,10 +39,7 @@ public class Initializer {
     @Inject
     private LoginPresenter loginPresenter;
 
-
-
-    public void initApp() {
-
+    public void launch() {
         final AppLayout mainLayout = new AppLayout();
         containerWidget = mainLayout.getAppContentHolder();
 

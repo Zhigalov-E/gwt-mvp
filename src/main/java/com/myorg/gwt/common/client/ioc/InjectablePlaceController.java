@@ -1,4 +1,4 @@
-package com.myorg.gwt.common.client.mvp.place;
+package com.myorg.gwt.common.client.ioc;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
