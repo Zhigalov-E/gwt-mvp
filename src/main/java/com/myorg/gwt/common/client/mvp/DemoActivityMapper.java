@@ -3,26 +3,32 @@ package com.myorg.gwt.common.client.mvp;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.place.shared.PlaceController;
 import com.myorg.gwt.login.client.ClientFactory;
 import com.myorg.gwt.login.client.mvp.activity.LoginActivity;
 import com.myorg.gwt.main.client.mvp.activity.MainActivity;
 import com.myorg.gwt.login.client.mvp.place.LoginPlace;
 import com.myorg.gwt.main.client.mvp.place.MainPlace;
 
-public class DemoActivityMapper implements ActivityMapper {
-    private ClientFactory clientFactory;
+import javax.inject.Inject;
 
-    public DemoActivityMapper(ClientFactory clientFactory) {
-        super();
-        this.clientFactory = clientFactory;
-    }
+public class DemoActivityMapper implements ActivityMapper {
+
+    @Inject
+    private LoginActivity loginActivity;
+
+    @Inject
+    private MainActivity mainActivity;
+
+    @Inject
+    private PlaceController placeController;
 
     @Override
     public Activity getActivity(Place place) {
         if (place instanceof MainPlace) {
-            return new MainActivity(clientFactory);
+            return mainActivity;
         } else if (place instanceof LoginPlace) {
-            return new LoginActivity(clientFactory);
+            return loginActivity;
         }
         return null;
     }

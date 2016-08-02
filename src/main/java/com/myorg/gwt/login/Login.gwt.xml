@@ -8,9 +8,5 @@
 
     <entry-point class="com.myorg.gwt.login.client.LoginEntryPoint"/>
 
-    <replace-with class="com.myorg.gwt.login.client.ClientFactoryImpl">
-        <when-type-is class="com.myorg.gwt.login.client.ClientFactory"/>
-    </replace-with>
-
     <source path='client'/>
 </module>
