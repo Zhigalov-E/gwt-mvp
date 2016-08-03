@@ -7,7 +7,7 @@
     <listener>
         <listener-class>com.myorg.gwt.common.server.utils.HibernateListener</listener-class>
     </listener>
-    <!-- Servlets -->
+
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>com.myorg.gwt.common.server.LoginRpcServiceImpl</servlet-class>
