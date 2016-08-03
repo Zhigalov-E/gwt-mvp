@@ -9,6 +9,7 @@
                     <a href="https://www.ardas.dp.ua/ru">
                         <img src="resources/logo.png"></img>
                     </a>
+                    <a href="/helpPage" target="_blank" class="helpLink">Help</a>
                 </div>
             </gwt:HTMLPanel>
         </gwt:north>
@@ -20,7 +21,7 @@
         <gwt:south size="50">
             <gwt:HTMLPanel styleName="footer">
                 <div id="footer">
-                    © 2015 Ardas Group
+                    © 2016 Ardas Group
                 </div>
             </gwt:HTMLPanel>
         </gwt:south>

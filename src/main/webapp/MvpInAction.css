@@ -1,10 +1,5 @@
 .header {
-    background-color:white;
-    color:white;
-    text-align:left;
-    padding:5px;
-    border-bottom: 7px solid black; /* Параметры линии */
-    padding-bottom: 10px; /* Расстояние до линии */
+    border-bottom: 7px solid black;
 }
 .footer {
     background-color:white;
@@ -26,6 +21,11 @@
 
 .greetingBox {
     padding: 50px;
+}
+
+.helpLink {
+    float: right;
+    margin: 110px 50px 0px 0px;
 }
 
 
