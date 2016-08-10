@@ -13,6 +13,7 @@ import com.myorg.gwt.login.client.mvp.view.login.LoginViewImpl;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenterImpl;
 import com.myorg.gwt.main.client.mvp.view.MainView;
+import com.myorg.gwt.main.client.mvp.view.css.MainResources;
 import com.myorg.gwt.main.client.mvp.view.main.MainViewImpl;
 
 
@@ -34,6 +35,14 @@ public class AppGinModule extends ApplicationGinModule {
         LoginResources loginResources = GWT.create(LoginResources.class);
         loginResources.style().ensureInjected();
         return loginResources;
+    }
+
+    @Provides
+    @Singleton
+    MainResources createMainResources() {
+        MainResources mainResources = GWT.create(MainResources.class);
+        mainResources.style().ensureInjected();
+        return mainResources;
     }
 
 }

@@ -15,6 +15,7 @@ import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
+import com.myorg.gwt.main.client.mvp.view.css.MainResources;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -31,13 +32,16 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
 
     @UiField(provided = true)
     final AppMessages i18n;
+    @UiField(provided = true)
+    final MainResources css;
     @UiField
     Anchor logOut;
     @UiField
     Label userGreeting;
 
     @Inject
-    public MainViewImpl(final AppMessages i18n) {
+    public MainViewImpl(final AppMessages i18n, final MainResources css) {
+        this.css = css;
         this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
     }

@@ -12,6 +12,7 @@ import com.myorg.gwt.login.client.mvp.view.LoginView;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.view.MainView;
+import com.myorg.gwt.main.client.mvp.view.css.MainResources;
 
 @GinModules(AppGinModule.class)
 public interface AppGinjector extends Ginjector {
@@ -23,6 +24,7 @@ public interface AppGinjector extends Ginjector {
     PlaceController getPlaceController();
     AppMessages getAppMessages();
     LoginResources getLoginResources();
+    MainResources getMainResources();
     LoginView getLoginView();
     MainView getMainView();
     LoginPresenter getLoginPresenter();

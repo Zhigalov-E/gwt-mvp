@@ -6,7 +6,7 @@ import com.google.gwt.resources.client.CssResource;
 
 public interface LoginResources extends ClientBundle {
 
-    @Source("com/myorg/gwt/login/client/mvp/view/css/Login.css")
+    @Source("Login.css")
     MyCss style();
 
 

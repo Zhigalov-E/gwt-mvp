@@ -1,21 +1,30 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with type="com.myorg.gwt.main.client.mvp.view.css.MainResources" field="css"/>
     <ui:with type="com.myorg.gwt.common.client.i18n.AppMessages" field="i18n"/>
-    <ui:style>
 
-    </ui:style>
-    <gwt:HTMLPanel styleName="greetingBox">
-        <br></br>
-        <br></br>
-        <br></br>
-        <div style='display:center'>
-            <gwt:Label ui:field="userGreeting" text=""/>
+    <gwt:HTMLPanel>
+        <div class="{css.style.greetingBox}"><br></br>
+            <br></br>
+            <br></br>
+            <div style='display:center'>
+                <gwt:Label ui:field="userGreeting" text=""/>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <gwt:Anchor ui:field="logOut" text="{i18n.logout}"  href="#login:"/>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <gwt:Anchor ui:field="logOut" text="{i18n.logout}"  href="#login:"/>
 
+        <div class="{css.style.fileLoadForm}">
+            <form method="POST" enctype="multipart/form-data" action="/fileProcessor">
+                File to upload: <input type="file" name="upfile"/><br/>
+                Notes about the file: <input type="text" name="note"/><br/>
+                <br/>
+                <input type="submit" value="Press"/> to upload the file!
+            </form>
+        </div>
     </gwt:HTMLPanel>
+
 </ui:UiBinder>
  
