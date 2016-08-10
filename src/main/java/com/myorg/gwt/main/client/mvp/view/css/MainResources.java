@@ -12,5 +12,6 @@ public interface MainResources extends ClientBundle {
     interface MainCss extends CssResource {
         String fileLoadForm();
         String greetingBox();
+        String clientData();
     }
 }

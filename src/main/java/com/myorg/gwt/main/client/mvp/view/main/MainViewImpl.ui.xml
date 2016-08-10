@@ -4,7 +4,8 @@
     <ui:with type="com.myorg.gwt.common.client.i18n.AppMessages" field="i18n"/>
 
     <gwt:HTMLPanel>
-        <div class="{css.style.greetingBox}"><br></br>
+        <div class="{css.style.greetingBox}">
+            <br></br>
             <br></br>
             <br></br>
             <div style='display:center'>
@@ -13,18 +14,20 @@
             <br></br>
             <br></br>
             <br></br>
-            <gwt:Anchor ui:field="logOut" text="{i18n.logout}"  href="#login:"/>
+            <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="#login:"/>
         </div>
+        <gwt:VerticalPanel styleName="{css.style.fileLoadForm}">
+            <gwt:FormPanel ui:field="form"  method="POST" encoding="multipart/form-data" action="/fileProcessor">
+                <gwt:HorizontalPanel>
+                    <gwt:FileUpload ui:field="uploadField" name="file"/>
+                    <gwt:SubmitButton ui:field="uploadButton">Upload</gwt:SubmitButton>
+                    <gwt:Button ui:field="clearButton">Clear</gwt:Button>
+                </gwt:HorizontalPanel>
+            </gwt:FormPanel>
 
-        <div class="{css.style.fileLoadForm}">
-            <form method="POST" enctype="multipart/form-data" action="/fileProcessor">
-                File to upload: <input type="file" name="upfile"/><br/>
-                Notes about the file: <input type="text" name="note"/><br/>
-                <br/>
-                <input type="submit" value="Press"/> to upload the file!
-            </form>
-        </div>
+            <gwt:TextArea ui:field="clientData" styleName="{css.style.clientData}"></gwt:TextArea>
+        </gwt:VerticalPanel>
+
     </gwt:HTMLPanel>
-
 </ui:UiBinder>
  

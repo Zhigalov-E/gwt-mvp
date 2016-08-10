@@ -1,6 +1,6 @@
 .fileLoadForm {
     width: 500px;
-    height: 200px;
+    height: 100px;
 
     position:absolute;
     left:0; right:-250px;
@@ -13,4 +13,12 @@
 
 .greetingBox {
     padding: 50px;
+}
+
+.clientData {
+    resize: none;
+    border: none;
+    width: 400px;
+    height: 200px;
+    margin-top: 10px;
 }

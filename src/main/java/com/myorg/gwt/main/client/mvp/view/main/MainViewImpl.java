@@ -32,12 +32,30 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
 
     @UiField(provided = true)
     final AppMessages i18n;
+
     @UiField(provided = true)
     final MainResources css;
+
     @UiField
     Anchor logOut;
+
     @UiField
     Label userGreeting;
+
+    @UiField
+    FormPanel form;
+
+    @UiField
+    FileUpload uploadField;
+
+    @UiField
+    SubmitButton uploadButton;
+
+    @UiField
+    Button clearButton;
+
+    @UiField
+    TextArea clientData;
 
     @Inject
     public MainViewImpl(final AppMessages i18n, final MainResources css) {
@@ -68,6 +86,16 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
         String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
         this.getUserGreeting().setText(userGreeting);
         // Window.Location.assign("#main:");
+    }
+
+    @Override
+    public void clearData() {
+        clientData.setText("");
+    }
+
+    @Override
+    public void showData(String text) {
+        clientData.setText(text);
     }
 
     public void setPresenter(MainPresenter presenter) {
