@@ -62,10 +62,11 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
         this.css = css;
         this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
+        initAcceptFormat();
     }
 
     @UiHandler("logOut")
-    public void onClick(ClickEvent clickEvent) {
+    public void onClickLogOut(ClickEvent clickEvent) {
         LoginRpcService.Util.getInstance().logout(new AsyncCallback() {
             @Override
             public void onFailure(Throwable throwable) {
@@ -81,11 +82,38 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
         });
     }
 
+    @UiHandler("clearButton")
+    public void onClickClearButton(ClickEvent clickEvent) {
+        clearData();
+    }
+
+    @UiHandler("form")
+    public void onSubmitForm(FormPanel.SubmitEvent event) {
+        if ("".equals(uploadField.getFilename())) {
+            Window.alert("No file selected");
+            event.cancel();
+        }
+    }
+
+    @UiHandler("form")
+    public void onCompleteForm(FormPanel.SubmitCompleteEvent event) {
+        String srvResponse = event.getResults();
+        if(srvResponse == null || srvResponse.equals("")) {
+            Window.alert("file is not valid");
+        } else {
+            clientData.setText(srvResponse);
+        }
+    }
+
     public void initHomePage(UserDTO userDTO) {
         String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
         String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
         this.getUserGreeting().setText(userGreeting);
         // Window.Location.assign("#main:");
+    }
+
+    private void initAcceptFormat() {
+        uploadField.getElement().setAttribute("accept", ".csv");
     }
 
     @Override
