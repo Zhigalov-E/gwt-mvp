@@ -13,5 +13,6 @@ public interface MainResources extends ClientBundle {
         String fileLoadForm();
         String greetingBox();
         String clientData();
+        String botton();
     }
 }
