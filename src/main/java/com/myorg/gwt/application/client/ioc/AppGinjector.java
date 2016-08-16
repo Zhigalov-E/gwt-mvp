@@ -10,6 +10,7 @@ import com.myorg.gwt.application.client.ApplicationLauncher;
 import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
 import com.myorg.gwt.login.client.mvp.view.LoginView;
 import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
+import com.myorg.gwt.main.client.i18n.FileUploadMessages;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.view.MainView;
 import com.myorg.gwt.main.client.mvp.view.css.MainResources;
@@ -23,6 +24,7 @@ public interface AppGinjector extends Ginjector {
     EventBus getEventBus();
     PlaceController getPlaceController();
     AppMessages getAppMessages();
+    FileUploadMessages getFileMessages();
     LoginResources getLoginResources();
     MainResources getMainResources();
     LoginView getLoginView();

@@ -90,6 +90,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     private void initAndGoToUserPage(UserDTO result) {
+        //TODO make throw event bus
         mainView.initHomePage(result);
         placeController.goTo(new MainPlace());
     }

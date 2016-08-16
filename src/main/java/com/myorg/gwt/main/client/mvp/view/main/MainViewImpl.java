@@ -84,13 +84,12 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
 
     @UiHandler("clearButton")
     public void onClickClearButton(ClickEvent clickEvent) {
-        clearData();
+        presenter.clearData();
     }
 
     @UiHandler("form")
     public void onSubmitForm(FormPanel.SubmitEvent event) {
-        if ("".equals(uploadField.getFilename())) {
-            Window.alert("No file selected");
+        if(!presenter.isFileChoosen(uploadField.getFilename())) {
             event.cancel();
         }
     }
@@ -98,18 +97,13 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
     @UiHandler("form")
     public void onCompleteForm(FormPanel.SubmitCompleteEvent event) {
         String srvResponse = event.getResults();
-        if(srvResponse == null || srvResponse.equals("")) {
-            Window.alert("file is not valid");
-        } else {
-            clientData.setText(srvResponse);
-        }
+        presenter.onGetResponse(srvResponse);
     }
 
     public void initHomePage(UserDTO userDTO) {
         String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
         String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
         this.getUserGreeting().setText(userGreeting);
-        // Window.Location.assign("#main:");
     }
 
     private void initAcceptFormat() {
