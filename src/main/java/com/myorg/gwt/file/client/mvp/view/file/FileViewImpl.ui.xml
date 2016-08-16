@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with type="com.myorg.gwt.file.client.mvp.view.css.FileResources" field="css"/>
+
+    <gwt:VerticalPanel styleName="{css.style.fileLoadForm}">
+            <gwt:FormPanel ui:field="form"  method="POST" encoding="multipart/form-data" action="/fileProcessor">
+                <gwt:HorizontalPanel>
+                    <gwt:FileUpload ui:field="uploadField" name="file" styleName="{css.style.botton}"/>
+                    <gwt:SubmitButton ui:field="uploadButton" styleName="{css.style.botton}">Upload</gwt:SubmitButton>
+                    <gwt:Button ui:field="clearButton" styleName="{css.style.botton}">Clear</gwt:Button>
+                </gwt:HorizontalPanel>
+            </gwt:FormPanel>
+
+            <gwt:TextArea ui:field="clientData" styleName="{css.style.clientData}"></gwt:TextArea>
+    </gwt:VerticalPanel>
+
+</ui:UiBinder>

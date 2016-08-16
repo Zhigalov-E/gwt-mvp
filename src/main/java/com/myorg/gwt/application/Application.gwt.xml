@@ -4,6 +4,7 @@
 
     <inherits name='com.myorg.gwt.login.Login'/>
     <inherits name='com.myorg.gwt.main.Main'/>
+    <inherits name='com.myorg.gwt.file.File'/>
 
     <entry-point class='com.myorg.gwt.application.client.ApplicationEntryPoint'/>
     <source path='client'/>

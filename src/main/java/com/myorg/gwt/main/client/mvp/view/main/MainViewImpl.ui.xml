@@ -16,18 +16,13 @@
             <br></br>
             <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="#login:"/>
         </div>
-        <gwt:VerticalPanel styleName="{css.style.fileLoadForm}">
-            <gwt:FormPanel ui:field="form"  method="POST" encoding="multipart/form-data" action="/fileProcessor">
-                <gwt:HorizontalPanel>
-                    <gwt:FileUpload ui:field="uploadField" name="file" styleName="{css.style.botton}"/>
-                    <gwt:SubmitButton ui:field="uploadButton" styleName="{css.style.botton}">Upload</gwt:SubmitButton>
-                    <gwt:Button ui:field="clearButton" styleName="{css.style.botton}">Clear</gwt:Button>
-                </gwt:HorizontalPanel>
-            </gwt:FormPanel>
 
-            <gwt:TextArea ui:field="clientData" styleName="{css.style.clientData}"></gwt:TextArea>
-        </gwt:VerticalPanel>
-
+        <div class="{css.style.greetingBox}">
+            <br/>
+            <br/>
+            <br/>
+            <gwt:Anchor ui:field="fileLink" text="{i18n.fileUploadLink}" href="#file:"/>
+        </div>
     </gwt:HTMLPanel>
 </ui:UiBinder>
  

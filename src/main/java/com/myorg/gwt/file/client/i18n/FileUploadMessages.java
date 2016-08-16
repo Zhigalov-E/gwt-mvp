@@ -1,4 +1,4 @@
-package com.myorg.gwt.main.client.i18n;
+package com.myorg.gwt.file.client.i18n;
 
 
 import com.google.gwt.i18n.client.LocalizableResource;

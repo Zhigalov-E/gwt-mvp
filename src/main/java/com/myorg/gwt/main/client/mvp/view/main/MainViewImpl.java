@@ -15,13 +15,14 @@ import com.myorg.gwt.common.client.rpc.LoginRpcService;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
+import com.myorg.gwt.main.client.mvp.view.MainView;
 import com.myorg.gwt.main.client.mvp.view.css.MainResources;
 
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainViewImpl extends Composite implements com.myorg.gwt.main.client.mvp.view.MainView {
+public class MainViewImpl extends Composite implements MainView {
     @UiTemplate("MainViewImpl.ui.xml")
     interface MainViewUiBinder extends UiBinder<Widget, MainViewImpl> {
     }
@@ -42,27 +43,11 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
     @UiField
     Label userGreeting;
 
-    @UiField
-    FormPanel form;
-
-    @UiField
-    FileUpload uploadField;
-
-    @UiField
-    SubmitButton uploadButton;
-
-    @UiField
-    Button clearButton;
-
-    @UiField
-    TextArea clientData;
-
     @Inject
     public MainViewImpl(final AppMessages i18n, final MainResources css) {
         this.css = css;
         this.i18n = i18n;
         initWidget(uiBinder.createAndBindUi(this));
-        initAcceptFormat();
     }
 
     @UiHandler("logOut")
@@ -82,42 +67,11 @@ public class MainViewImpl extends Composite implements com.myorg.gwt.main.client
         });
     }
 
-    @UiHandler("clearButton")
-    public void onClickClearButton(ClickEvent clickEvent) {
-        presenter.clearData();
-    }
-
-    @UiHandler("form")
-    public void onSubmitForm(FormPanel.SubmitEvent event) {
-        if(!presenter.isFileChoosen(uploadField.getFilename())) {
-            event.cancel();
-        }
-    }
-
-    @UiHandler("form")
-    public void onCompleteForm(FormPanel.SubmitCompleteEvent event) {
-        String srvResponse = event.getResults();
-        presenter.onGetResponse(srvResponse);
-    }
 
     public void initHomePage(UserDTO userDTO) {
         String greeting = TimeMessager.getInstance().getMessageResouse(new Date());
         String userGreeting = getI18n().userGreeting(greeting, userDTO.getName());
         this.getUserGreeting().setText(userGreeting);
-    }
-
-    private void initAcceptFormat() {
-        uploadField.getElement().setAttribute("accept", ".csv");
-    }
-
-    @Override
-    public void clearData() {
-        clientData.setText("");
-    }
-
-    @Override
-    public void showData(String text) {
-        clientData.setText(text);
     }
 
     public void setPresenter(MainPresenter presenter) {

@@ -26,4 +26,6 @@ public interface AppMessages extends Messages {
     String userGreeting(String greeting, String name);
 
     String logout();
+
+    String fileUploadLink();
 }

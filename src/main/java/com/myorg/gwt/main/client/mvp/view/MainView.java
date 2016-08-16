@@ -7,6 +7,4 @@ import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 public interface MainView extends IsWidget {
     void setPresenter(MainPresenter presenter);
     void initHomePage(UserDTO result);
-    void clearData();
-    void showData(String text);
 }

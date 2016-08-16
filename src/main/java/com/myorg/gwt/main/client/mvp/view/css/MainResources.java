@@ -10,9 +10,6 @@ public interface MainResources extends ClientBundle {
     MainCss style();
 
     interface MainCss extends CssResource {
-        String fileLoadForm();
         String greetingBox();
-        String clientData();
-        String botton();
     }
 }
