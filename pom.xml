@@ -164,11 +164,17 @@
             <artifactId>jbcrypt</artifactId>
             <version>0.3m</version>
         </dependency>
-        <!-- crypt lib -->
+        <!-- file upload lib -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.2</version>
+        </dependency>
+        <!-- json processor -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
         </dependency>
 
     </dependencies>
