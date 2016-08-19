@@ -4,6 +4,7 @@
     <g:HTMLPanel>
         <div>
             <c:CellTable ui:field="clientTable"/>
+            <c:SimplePager ui:field="pager" location="CENTER"/>
         </div>
     </g:HTMLPanel>
 </ui:UiBinder>
