@@ -1,8 +1,9 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-             xmlns:gwt='urn:import:com.google.gwt.user.client.ui'>
+             xmlns:gwt='urn:import:com.google.gwt.user.client.ui'
+             xmlns:my = 'urn:import:com.myorg.gwt.file.client.widget'>
     <ui:with type="com.myorg.gwt.file.client.mvp.view.css.FileResources" field="css"/>
 
-    <gwt:VerticalPanel>
+    <gwt:VerticalPanel horizontalAlignment="center">
         <gwt:HorizontalPanel styleName="{css.style.fileLoadForm}">
             <gwt:FormPanel ui:field="form" method="POST" encoding="multipart/form-data" action="/fileProcessor">
                 <gwt:HorizontalPanel>
@@ -13,9 +14,9 @@
             </gwt:FormPanel>
         </gwt:HorizontalPanel>
 
-        <gwt:HorizontalPanel >
-            <gwt:TextArea styleName="{css.style.clientData}" ui:field="clientData" ></gwt:TextArea>
-        </gwt:HorizontalPanel>
+        <gwt:HTMLPanel  styleName="{css.style.clientData}">
+            <my:ClientsWidget  ui:field="clientData" ></my:ClientsWidget>
+        </gwt:HTMLPanel>
     </gwt:VerticalPanel>
 
 </ui:UiBinder>

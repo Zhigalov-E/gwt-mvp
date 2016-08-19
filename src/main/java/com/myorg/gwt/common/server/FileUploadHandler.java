@@ -29,10 +29,8 @@ public class FileUploadHandler extends HttpServlet {
 
     private long FILE_SIZE_LIMIT = 1 * 1024 * 1024; // 1 MiB
 
-    private static final Pattern NAME_SURNAME_PATTERN = Pattern.compile("^[а-яА-ЯёЁa-zA-Z]{1,40} [а-яА-ЯёЁa-zA-Z]{1,40}$");
     private static final Pattern DATE_PATTERN = Pattern.compile("^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$");
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$");
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
@@ -80,10 +78,10 @@ public class FileUploadHandler extends HttpServlet {
         String[] parts = line.split(CHAR_TERMINATOR);
         Client client = new Client();
 
-        if(NAME_SURNAME_PATTERN.matcher(parts[0].trim()).matches()) {
-            client.setName(parts[0]);
-        } else {
+        if(parts[0]== null || parts[0].equals("")) {
             throw new RuntimeException("Invalid Name format");
+        } else {
+            client.setName(parts[0]);
         }
         if(DATE_PATTERN.matcher(parts[1].trim()).matches()) {
             client.setDate(parts[1]);

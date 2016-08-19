@@ -16,8 +16,6 @@
 .clientData {
     resize: none;
     border: none;
-    width: 600px;
-    height: 600px;
     left:0px; right:0px;
     top:100px; bottom:0px;
 }

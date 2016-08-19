@@ -11,7 +11,10 @@ import com.google.inject.Inject;
 import com.myorg.gwt.file.client.mvp.presenter.FilePresenter;
 import com.myorg.gwt.file.client.mvp.view.FileView;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
+import com.myorg.gwt.file.client.widget.ClientsWidget;
+import com.myorg.gwt.file.client.widget.IClient;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class FileViewImpl extends Composite implements FileView {
@@ -41,7 +44,7 @@ public class FileViewImpl extends Composite implements FileView {
     Button clearButton;
 
     @UiField
-    TextArea clientData;
+    ClientsWidget clientData;
 
     @Inject
     public FileViewImpl(final FileResources css) {
@@ -79,11 +82,11 @@ public class FileViewImpl extends Composite implements FileView {
 
     @Override
     public void clearData() {
-        clientData.setText("");
+        clientData.clear();
     }
 
     @Override
-    public void showData(String text) {
-        clientData.setText(text);
+    public void showData(List<IClient> clients) {
+        clientData.setData(clients);
     }
 }
