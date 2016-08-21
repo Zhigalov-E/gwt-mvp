@@ -16,13 +16,6 @@
             <br></br>
             <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="#login:"/>
         </div>
-
-        <div class="{css.style.greetingBox}">
-            <br/>
-            <br/>
-            <br/>
-            <gwt:Anchor ui:field="fileLink" text="{i18n.fileUploadLink}" href="#file:"/>
-        </div>
     </gwt:HTMLPanel>
 </ui:UiBinder>
  
