@@ -10,4 +10,7 @@ public interface FileView extends IsWidget {
     void setPresenter(FilePresenter presenter);
     void clearData();
     void showData(List<IClient> clients);
+
+    void setWarnMessage(String value);
+    void unsetWarnMessage();
 }

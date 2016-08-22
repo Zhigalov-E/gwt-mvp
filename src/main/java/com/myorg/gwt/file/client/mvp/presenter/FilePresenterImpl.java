@@ -43,17 +43,25 @@ public class FilePresenterImpl implements FilePresenter {
 
     @Override
     public void onGetResponse(String srvResponse) {
+        view.clearData();
         if(srvResponse == null || srvResponse.equals("")) {
-            Window.alert(fileUploadMessages.fileNotValid());
+            view.setWarnMessage(fileUploadMessages.fileUnexpectedError());
+        } else if(srvResponse.equals("BAD_FORMAT")) {
+            view.setWarnMessage(fileUploadMessages.fileBadFormat());
+        } else if(srvResponse.equals("SIZE_LIMIT")) {
+            view.setWarnMessage(fileUploadMessages.fileSizeLimit());
         } else {
             List<IClient> clients = parseJsonData(srvResponse);
-            if(clients != null) {
+            if(clients.size() == 0) {
+                view.setWarnMessage(fileUploadMessages.fileIsEmpty());
+            } else {
+                view.unsetWarnMessage();
                 view.showData(clients);
             }
         }
     }
 
-    private List<IClient> parseJsonData(String json) {
+    private List<IClient> parseJsonData(String json)  {
         JSONValue jsonValue = JSONParser.parseStrict(json);
         JSONObject clientsObject = jsonValue.isObject();
         JSONArray jsonArray = clientsObject.get("clients").isArray();
@@ -62,10 +70,18 @@ public class FilePresenterImpl implements FilePresenter {
             List<IClient> clients = new ArrayList<>(jsonArray.size());
             for (int i = 0 ; i < jsonArray.size(); ++i) {
                 JSONObject jsonObject = jsonArray.get(i).isObject();
-                String name = jsonObject.get("name").isString().stringValue();
-                String date = jsonObject.get("date").isString().stringValue();
-                String email = jsonObject.get("email").isString().stringValue();
-
+                String name = null;
+                String date = null;
+                String email = null;
+                if(jsonObject.containsKey("name")) {
+                    name = jsonObject.get("name").isString().stringValue();
+                }
+                if(jsonObject.containsKey("date")) {
+                    date = jsonObject.get("date").isString().stringValue();
+                }
+                if(jsonObject.containsKey("email")) {
+                    email = jsonObject.get("email").isString().stringValue();
+                }
                 IClient client = new IClient(name, date, email);
                 clients.add(client);
             }

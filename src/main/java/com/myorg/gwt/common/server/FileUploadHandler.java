@@ -2,6 +2,7 @@ package com.myorg.gwt.common.server;
 
 import com.myorg.gwt.common.server.model.Client;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -27,7 +28,7 @@ public class FileUploadHandler extends HttpServlet {
     private static final String FILE_EXTENTION = ".CSV";
     private static final String CHAR_TERMINATOR = ",";
 
-    private long FILE_SIZE_LIMIT = 1 * 1024 * 1024; // 1 MiB
+    private long FILE_SIZE_LIMIT = 1 * 1024 * 1024; // 1 MB
 
     private static final Pattern DATE_PATTERN = Pattern.compile("^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$");
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$");
@@ -41,6 +42,11 @@ public class FileUploadHandler extends HttpServlet {
 
         BufferedReader bufReader = null;
         PrintWriter responseWriter = null;
+
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        responseWriter = response.getWriter();
+
         try {
             List<FileItem> items = upload.parseRequest(request);
             for (FileItem item : items) {
@@ -55,12 +61,15 @@ public class FileUploadHandler extends HttpServlet {
                             LOGGER.warn(e.getMessage());
                         }
                     }
-                    response.setContentType("text/html; charset=UTF-8");
-                    response.setCharacterEncoding("UTF-8");
-                    responseWriter = response.getWriter();
                     responseWriter.write(convertToJSON(clients).toString());
+                } else {
+                    responseWriter.write("BAD_FORMAT");
                 }
             }
+
+        } catch(FileUploadBase.SizeLimitExceededException e) {
+            LOGGER.warn("Size limit exceeded exception");
+            responseWriter.write("SIZE_LIMIT");
         } catch (FileUploadException e) {
             LOGGER.error("Throwing servlet exception for unhandled exception", e);
             throw new ServletException("Cannot parse multipart request.", e);
@@ -79,7 +88,7 @@ public class FileUploadHandler extends HttpServlet {
         Client client = new Client();
 
         if(parts[0]== null || parts[0].equals("")) {
-            throw new RuntimeException("Invalid Name format");
+            throw new RuntimeException(String.format("Validation failed for line '%s' name is empty", line));
         } else {
             client.setName(parts[0]);
         }

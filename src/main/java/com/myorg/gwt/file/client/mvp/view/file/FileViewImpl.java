@@ -32,6 +32,9 @@ public class FileViewImpl extends Composite implements FileView {
     final FileResources css;
 
     @UiField
+    Label warnMessage;
+
+    @UiField
     FormPanel form;
 
     @UiField
@@ -89,4 +92,18 @@ public class FileViewImpl extends Composite implements FileView {
     public void showData(List<IClient> clients) {
         clientData.setData(clients);
     }
+
+    @Override
+    public void setWarnMessage(String value) {
+        warnMessage.setText(value);
+        warnMessage.setVisible(true);
+    }
+
+    @Override
+    public void unsetWarnMessage() {
+        warnMessage.setText(null);
+        warnMessage.setVisible(false);
+    }
+
+
 }

@@ -45,14 +45,23 @@ public class ClientsWidget<T extends IClient> extends Composite {
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {
+                if(t.getDate() == null) {
+                    setCellStyleNames("background-color: red;");
+                }
                 return t.getDate();
             }
+
         }, "Date");
+
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {
+                if(t.getEmail() == null) {
+                    setCellStyleNames("background-color: red;");
+                }
                 return t.getEmail();
             }
+
         }, "Email");
 
         clientTable.setRowCount(clients.size(), true);

@@ -12,5 +12,6 @@ public interface FileResources extends ClientBundle {
         String fileLoadForm();
         String clientData();
         String botton();
+        String warnMessage();
     }
 }
