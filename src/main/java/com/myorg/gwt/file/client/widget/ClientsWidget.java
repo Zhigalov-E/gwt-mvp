@@ -54,11 +54,11 @@ public class ClientsWidget<T extends IClient> extends Composite {
 
             @Override
             public String getCellStyleNames(Cell.Context context, T object) {
+                String style = null;
                 if(object.getDate() == null) {
-                    return fileResources.style().redBackground();
-                } else {
-                    return super.getCellStyleNames(context, object);
+                    style = fileResources.style().redBackground();
                 }
+                return style;
             }
         }, "Date");
 
@@ -70,11 +70,11 @@ public class ClientsWidget<T extends IClient> extends Composite {
 
             @Override
             public String getCellStyleNames(Cell.Context context, T object) {
+                String style = null;
                 if(object.getEmail() == null) {
-                    return fileResources.style().redBackground();
-                } else {
-                    return super.getCellStyleNames(context, object);
+                    style = fileResources.style().redBackground();
                 }
+                return style;
             }
 
         }, "Email");
