@@ -12,8 +12,11 @@ import com.myorg.gwt.file.client.widget.IClient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class FilePresenterImpl implements FilePresenter {
+
+    private static final Logger LOGGER = Logger.getLogger(FilePresenterImpl.class.getName());
 
     private FileView view;
 
@@ -51,12 +54,17 @@ public class FilePresenterImpl implements FilePresenter {
         } else if(srvResponse.equals("SIZE_LIMIT")) {
             view.setWarnMessage(fileUploadMessages.fileSizeLimit());
         } else {
-            List<IClient> clients = parseJsonData(srvResponse);
-            if(clients.size() == 0) {
-                view.setWarnMessage(fileUploadMessages.fileIsEmpty());
-            } else {
-                view.unsetWarnMessage();
-                view.showData(clients);
+            try {
+                List<IClient> clients = parseJsonData(srvResponse);
+                if(clients.size() == 0) {
+                    view.setWarnMessage(fileUploadMessages.fileIsEmpty());
+                } else {
+                    view.unsetWarnMessage();
+                    view.showData(clients);
+                }
+            } catch(Exception e) {
+                LOGGER.warning(e.getMessage());
+                view.setWarnMessage(fileUploadMessages.fileBadDataFormat());
             }
         }
     }

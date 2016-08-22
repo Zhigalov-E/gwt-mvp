@@ -92,10 +92,10 @@ public class FileUploadHandler extends HttpServlet {
         } else {
             client.setName(parts[0]);
         }
-        if(DATE_PATTERN.matcher(parts[1].trim()).matches()) {
+        if(parts.length > 1 && DATE_PATTERN.matcher(parts[1].trim()).matches()) {
             client.setDate(parts[1]);
         }
-        if(EMAIL_PATTERN.matcher(parts[2].trim()).matches()) {
+        if(parts.length > 2 && EMAIL_PATTERN.matcher(parts[2].trim()).matches()) {
             client.setEmail(parts[2]);
         }
 

@@ -11,4 +11,5 @@ public interface FileUploadMessages extends Messages {
     String fileBadFormat();
     String fileSizeLimit();
     String fileIsEmpty();
+    String fileBadDataFormat();
 }
