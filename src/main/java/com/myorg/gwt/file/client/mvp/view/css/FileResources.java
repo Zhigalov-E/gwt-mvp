@@ -13,5 +13,6 @@ public interface FileResources extends ClientBundle {
         String clientData();
         String botton();
         String warnMessage();
+        String redBackground();
     }
 }

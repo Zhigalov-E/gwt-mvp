@@ -1,6 +1,7 @@
 package com.myorg.gwt.file.client.widget;
 
 
+import com.google.gwt.cell.client.Cell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -11,6 +12,7 @@ import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ListDataProvider;
+import com.myorg.gwt.file.client.mvp.view.css.FileResources;
 
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class ClientsWidget<T extends IClient> extends Composite {
     @UiTemplate("ClientsWidget.ui.xml")
     public interface ClientsWidgetUiBinder extends UiBinder<Widget, ClientsWidget<?>> {
     }
+
+    private FileResources fileResources;
 
     @UiField
     CellTable<T> clientTable;
@@ -45,21 +49,32 @@ public class ClientsWidget<T extends IClient> extends Composite {
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {
-                if(t.getDate() == null) {
-                    setCellStyleNames("background-color: red;");
-                }
                 return t.getDate();
             }
 
+            @Override
+            public String getCellStyleNames(Cell.Context context, T object) {
+                if(object.getDate() == null) {
+                    return fileResources.style().redBackground();
+                } else {
+                    return super.getCellStyleNames(context, object);
+                }
+            }
         }, "Date");
 
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {
-                if(t.getEmail() == null) {
-                    setCellStyleNames("background-color: red;");
-                }
                 return t.getEmail();
+            }
+
+            @Override
+            public String getCellStyleNames(Cell.Context context, T object) {
+                if(object.getEmail() == null) {
+                    return fileResources.style().redBackground();
+                } else {
+                    return super.getCellStyleNames(context, object);
+                }
             }
 
         }, "Email");
@@ -84,5 +99,7 @@ public class ClientsWidget<T extends IClient> extends Composite {
         pager.setVisible(false);
     }
 
-
+    public void setFileResources(FileResources fileResources) {
+        this.fileResources = fileResources;
+    }
 }

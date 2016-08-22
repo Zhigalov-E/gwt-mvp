@@ -54,6 +54,7 @@ public class FileViewImpl extends Composite implements FileView {
         this.css = css;
         initWidget(uiBinder.createAndBindUi(this));
         initAcceptFormat();
+        clientData.setFileResources(css);
     }
 
     @UiHandler("clearButton")
