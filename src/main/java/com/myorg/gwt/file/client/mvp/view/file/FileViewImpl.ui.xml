@@ -4,6 +4,9 @@
     <ui:with type="com.myorg.gwt.file.client.mvp.view.css.FileResources" field="css"/>
 
     <gwt:VerticalPanel horizontalAlignment="center">
+        <gwt:HTMLPanel styleName="{css.style.warnMessage}">
+            <gwt:Label ui:field="warnMessage" visible="false"/>
+        </gwt:HTMLPanel>
         <gwt:HorizontalPanel styleName="{css.style.fileLoadForm}">
             <gwt:FormPanel ui:field="form" method="POST" encoding="multipart/form-data" action="/fileProcessor">
                 <gwt:HorizontalPanel>

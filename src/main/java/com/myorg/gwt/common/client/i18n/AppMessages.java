@@ -28,4 +28,6 @@ public interface AppMessages extends Messages {
     String logout();
 
     String fileUploadLink();
+
+    String helpLink();
 }

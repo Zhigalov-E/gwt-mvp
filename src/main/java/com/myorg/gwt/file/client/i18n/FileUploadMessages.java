@@ -7,5 +7,9 @@ import com.google.gwt.i18n.client.Messages;
 @LocalizableResource.DefaultLocale("en")
 public interface FileUploadMessages extends Messages {
     String fileNotSelected();
-    String fileNotValid();
+    String fileUnexpectedError();
+    String fileBadFormat();
+    String fileSizeLimit();
+    String fileIsEmpty();
+    String fileBadDataFormat();
 }
