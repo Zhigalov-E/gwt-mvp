@@ -14,25 +14,22 @@ import com.myorg.gwt.file.client.mvp.view.css.FileResources;
 
 import java.util.List;
 
-public class ClientsWidget<T extends IClient> extends Composite {
+public class ClientsTable<T extends IClient> extends Composite {
 
     public static ClientsWidgetUiBinder uiBinder = GWT.create(ClientsWidgetUiBinder.class);
-
-    @UiTemplate("ClientsWidget.ui.xml")
-    public interface ClientsWidgetUiBinder extends UiBinder<Widget, ClientsWidget<?>> {
-    }
 
     private FileResources fileResources;
 
     @UiField
     CellTable<T> clientTable;
 
-    public ClientsWidget() {
+    public ClientsTable() {
         initWidget(uiBinder.createAndBindUi(this));
     }
 
     public void setData(List<T> clients) {
         clear();
+        //TODO: localize column name
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {
@@ -87,5 +84,9 @@ public class ClientsWidget<T extends IClient> extends Composite {
 
     public void setFileResources(FileResources fileResources) {
         this.fileResources = fileResources;
+    }
+
+
+    public interface ClientsWidgetUiBinder extends UiBinder<Widget, ClientsTable<?>> {
     }
 }

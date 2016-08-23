@@ -61,6 +61,7 @@ public class FileUploadHandler extends HttpServlet {
                             LOGGER.warn(e.getMessage());
                         }
                     }
+                    //TODO: extract to method
                     responseWriter.write(convertToJSON(clients).toString());
                 } else {
                     responseWriter.write("BAD_FORMAT");
@@ -77,17 +78,14 @@ public class FileUploadHandler extends HttpServlet {
             if (bufReader != null) {
                 bufReader.close();
             }
-            if (responseWriter != null) {
-                responseWriter.close();
-            }
         }
     }
 
     private Client parseLine(String line) throws RuntimeException {
         String[] parts = line.split(CHAR_TERMINATOR);
         Client client = new Client();
-
-        if(parts[0]== null || parts[0].equals("")) {
+        //TODO create client obj after throw
+        if(parts[0]== null || parts[0].isEmpty()) {
             throw new RuntimeException(String.format("Validation failed for line '%s' name is empty", line));
         } else {
             client.setName(parts[0]);

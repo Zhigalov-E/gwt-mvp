@@ -8,10 +8,11 @@ public interface FileResources extends ClientBundle {
     @Source("File.css")
     MainCss style();
 
+
     interface MainCss extends CssResource {
         String fileLoadForm();
         String clientData();
-        String botton();
+        String button();
         String warnMessage();
         String redBackground();
     }

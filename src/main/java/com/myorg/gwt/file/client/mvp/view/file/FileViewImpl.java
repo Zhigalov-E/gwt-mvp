@@ -11,7 +11,7 @@ import com.google.inject.Inject;
 import com.myorg.gwt.file.client.mvp.presenter.FilePresenter;
 import com.myorg.gwt.file.client.mvp.view.FileView;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
-import com.myorg.gwt.file.client.widget.ClientsWidget;
+import com.myorg.gwt.file.client.widget.ClientsTable;
 import com.myorg.gwt.file.client.widget.IClient;
 
 import java.util.List;
@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 
 public class FileViewImpl extends Composite implements FileView {
 
-    @UiTemplate("FileViewImpl.ui.xml")
     interface MainViewUiBinder extends UiBinder<Widget, FileViewImpl> {
     }
     private static final Logger LOGGER = Logger.getLogger(FileViewImpl.class.getName());
@@ -47,7 +46,7 @@ public class FileViewImpl extends Composite implements FileView {
     Button clearButton;
 
     @UiField
-    ClientsWidget clientData;
+    ClientsTable clientData;
 
     @Inject
     public FileViewImpl(final FileResources css) {
@@ -87,6 +86,7 @@ public class FileViewImpl extends Composite implements FileView {
     @Override
     public void clearData() {
         clientData.clear();
+        clearWarnMessage();
     }
 
     @Override
@@ -101,10 +101,8 @@ public class FileViewImpl extends Composite implements FileView {
     }
 
     @Override
-    public void unsetWarnMessage() {
+    public void clearWarnMessage() {
         warnMessage.setText(null);
         warnMessage.setVisible(false);
     }
-
-
 }

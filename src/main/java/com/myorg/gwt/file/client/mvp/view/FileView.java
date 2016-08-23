@@ -8,9 +8,10 @@ import java.util.List;
 
 public interface FileView extends IsWidget {
     void setPresenter(FilePresenter presenter);
+    //TODO: Extract methods to new interface
     void clearData();
     void showData(List<IClient> clients);
-
+    //TODO: Extract methods --//---
     void setWarnMessage(String value);
-    void unsetWarnMessage();
+    void clearWarnMessage();
 }
