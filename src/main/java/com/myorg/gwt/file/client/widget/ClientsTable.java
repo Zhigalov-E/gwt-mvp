@@ -5,11 +5,11 @@ import com.google.gwt.cell.client.Cell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import com.myorg.gwt.file.client.i18n.FileConstants;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
 
 import java.util.List;
@@ -19,6 +19,8 @@ public class ClientsTable<T extends IClient> extends Composite {
     public static ClientsWidgetUiBinder uiBinder = GWT.create(ClientsWidgetUiBinder.class);
 
     private FileResources fileResources;
+
+    private FileConstants fileConstants;
 
     @UiField
     CellTable<T> clientTable;
@@ -35,7 +37,7 @@ public class ClientsTable<T extends IClient> extends Composite {
             public String getValue(T t) {
                 return t.getName();
             }
-        }, "Name");
+        }, fileConstants.columnName());
 
         clientTable.addColumn(new TextColumn<T>() {
             @Override
@@ -51,7 +53,7 @@ public class ClientsTable<T extends IClient> extends Composite {
                 }
                 return style;
             }
-        }, "Date");
+        }, fileConstants.columnDate());
 
         clientTable.addColumn(new TextColumn<T>() {
             @Override
@@ -68,7 +70,7 @@ public class ClientsTable<T extends IClient> extends Composite {
                 return style;
             }
 
-        }, "Email");
+        }, fileConstants.columnEmail());
         clientTable.setPageSize(clients.size());
         clientTable.setRowCount(clients.size(), true);
         clientTable.setRowData(0, clients);
@@ -86,6 +88,9 @@ public class ClientsTable<T extends IClient> extends Composite {
         this.fileResources = fileResources;
     }
 
+    public void setFileConstants(FileConstants fileConstants) {
+        this.fileConstants = fileConstants;
+    }
 
     public interface ClientsWidgetUiBinder extends UiBinder<Widget, ClientsTable<?>> {
     }

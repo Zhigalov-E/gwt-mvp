@@ -5,9 +5,9 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.*;
 import com.google.inject.Inject;
+import com.myorg.gwt.file.client.i18n.FileConstants;
 import com.myorg.gwt.file.client.mvp.presenter.FilePresenter;
 import com.myorg.gwt.file.client.mvp.view.FileView;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
@@ -30,6 +30,9 @@ public class FileViewImpl extends Composite implements FileView {
     @UiField(provided = true)
     final FileResources css;
 
+    @UiField(provided = true)
+    final FileConstants constants;
+
     @UiField
     Label warnMessage;
 
@@ -49,11 +52,13 @@ public class FileViewImpl extends Composite implements FileView {
     ClientsTable clientData;
 
     @Inject
-    public FileViewImpl(final FileResources css) {
+    public FileViewImpl(final FileResources css, FileConstants fileConstants) {
         this.css = css;
+        this.constants = fileConstants;
         initWidget(uiBinder.createAndBindUi(this));
         initAcceptFormat();
         clientData.setFileResources(css);
+        clientData.setFileConstants(fileConstants);
     }
 
     @UiHandler("clearButton")

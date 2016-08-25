@@ -7,6 +7,7 @@ import com.google.gwt.inject.client.Ginjector;
 import com.google.gwt.place.shared.PlaceController;
 import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.application.client.ApplicationLauncher;
+import com.myorg.gwt.file.client.i18n.FileConstants;
 import com.myorg.gwt.file.client.mvp.presenter.FilePresenter;
 import com.myorg.gwt.file.client.mvp.view.FileView;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
@@ -28,6 +29,7 @@ public interface AppGinjector extends Ginjector {
     PlaceController getPlaceController();
     AppMessages getAppMessages();
     FileUploadMessages getFileMessages();
+    FileConstants getFileConstants();
     LoginResources getLoginResources();
     MainResources getMainResources();
     FileResources getFileResources();
