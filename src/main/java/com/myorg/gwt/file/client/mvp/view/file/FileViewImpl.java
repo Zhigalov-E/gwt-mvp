@@ -71,12 +71,13 @@ public class FileViewImpl extends Composite implements FileView {
         if(!presenter.isFileChoosen(uploadField.getFilename())) {
             event.cancel();
         }
+        LOGGER.info(uploadField.getFilename());
     }
 
     @UiHandler("form")
     public void onCompleteForm(FormPanel.SubmitCompleteEvent event) {
-        String srvResponse = event.getResults();
-        presenter.onGetResponse(srvResponse);
+        String response = event.getResults();
+        presenter.onGetResponse(response);
     }
 
     @Override

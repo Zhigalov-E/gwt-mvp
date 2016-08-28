@@ -31,7 +31,6 @@ public class ClientsTable<T extends IClient> extends Composite {
 
     public void setData(List<T> clients) {
         clear();
-        //TODO: localize column name
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T t) {

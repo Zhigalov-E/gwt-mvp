@@ -51,7 +51,6 @@ public class FileUploadHandler extends HttpServlet {
             List<FileItem> items = upload.parseRequest(request);
             for (FileItem item : items) {
                 if (!item.isFormField() && item.getName().toUpperCase().endsWith(FILE_EXTENTION)) {
-
                     bufReader = new BufferedReader(new InputStreamReader(item.getInputStream()));
                     String line;
                     while ((line = bufReader.readLine()) != null) {
@@ -61,16 +60,15 @@ public class FileUploadHandler extends HttpServlet {
                             LOGGER.warn(e.getMessage());
                         }
                     }
-                    //TODO: extract to method
-                    responseWriter.write(convertToJSON(clients).toString());
+                    writeResponseData(responseWriter, convertToJSON(clients).toString());
                 } else {
-                    responseWriter.write("BAD_FORMAT");
+                    writeResponseData(responseWriter, "BAD_FORMAT");
                 }
             }
 
         } catch(FileUploadBase.SizeLimitExceededException e) {
             LOGGER.warn("Size limit exceeded exception");
-            responseWriter.write("SIZE_LIMIT");
+            writeResponseData(responseWriter, "SIZE_LIMIT");
         } catch (FileUploadException e) {
             LOGGER.error("Throwing servlet exception for unhandled exception", e);
             throw new ServletException("Cannot parse multipart request.", e);
@@ -81,13 +79,17 @@ public class FileUploadHandler extends HttpServlet {
         }
     }
 
+    private void writeResponseData(PrintWriter responseWriter, String data) {
+        responseWriter.write(data);
+    }
+
     private Client parseLine(String line) throws RuntimeException {
         String[] parts = line.split(CHAR_TERMINATOR);
-        Client client = new Client();
-        //TODO create client obj after throw
+        Client client;
         if(parts[0]== null || parts[0].isEmpty()) {
             throw new RuntimeException(String.format("Validation failed for line '%s' name is empty", line));
         } else {
+            client = new Client();
             client.setName(parts[0]);
         }
         if(parts.length > 1 && DATE_PATTERN.matcher(parts[1].trim()).matches()) {

@@ -44,17 +44,17 @@ public class FilePresenterImpl implements FilePresenter {
     }
 
     @Override
-    public void onGetResponse(String srvResponse) {
+    public void onGetResponse(String response) {
         view.clearData();
-        if(srvResponse == null || srvResponse.equals("")) {
+        if( response == null ||  response.equals("")) {
             view.setWarnMessage(fileUploadMessages.fileUnexpectedError());
-        } else if(srvResponse.equals("BAD_FORMAT")) {
+        } else if( response.equals("BAD_FORMAT")) {
             view.setWarnMessage(fileUploadMessages.fileBadFormat());
-        } else if(srvResponse.equals("SIZE_LIMIT")) {
+        } else if( response.equals("SIZE_LIMIT")) {
             view.setWarnMessage(fileUploadMessages.fileSizeLimit());
         } else {
             try {
-                List<IClient> clients = parseJsonData(srvResponse);
+                List<IClient> clients = parseJsonData( response);
                 if(clients.isEmpty()) {
                     view.setWarnMessage(fileUploadMessages.fileIsEmpty());
                 } else {
