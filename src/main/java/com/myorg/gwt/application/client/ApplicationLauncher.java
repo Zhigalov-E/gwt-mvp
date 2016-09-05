@@ -7,14 +7,12 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
-import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.myorg.gwt.application.client.ioc.AppGinjector;
-import com.myorg.gwt.common.client.layout.AppLayout;
 import com.myorg.gwt.application.client.mvp.DemoPlaceHistoryMapper;
-import com.myorg.gwt.login.client.mvp.place.LoginPlace;
-import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
+import com.myorg.gwt.common.client.layout.AppLayout;
+import com.myorg.gwt.main.client.mvp.place.MainPlace;
 
 import javax.inject.Inject;
 
@@ -25,7 +23,7 @@ public class ApplicationLauncher {
     private SimplePanel containerWidget;
 
     @Inject
-    private LoginPlace defaultPlace;
+    private MainPlace defaultPlace;
 
     @Inject
     private EventBus eventBus;
@@ -35,9 +33,6 @@ public class ApplicationLauncher {
 
     @Inject
     private PlaceController placeController;
-
-    @Inject
-    private LoginPresenter loginPresenter;
 
     public void launch() {
         final AppLayout mainLayout = new AppLayout();
@@ -54,9 +49,5 @@ public class ApplicationLauncher {
 
         RootLayoutPanel.get().add(mainLayout);
         historyHandler.handleCurrentHistory();
-        //Check exists session
-        if (Cookies.getCookie("sid") != null) {
-            loginPresenter.checkWithServerIfSessionIdIsStillLegal();
-        }
     }
 }

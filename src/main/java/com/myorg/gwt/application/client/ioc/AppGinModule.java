@@ -12,11 +12,6 @@ import com.myorg.gwt.file.client.mvp.presenter.FilePresenterImpl;
 import com.myorg.gwt.file.client.mvp.view.FileView;
 import com.myorg.gwt.file.client.mvp.view.css.FileResources;
 import com.myorg.gwt.file.client.mvp.view.file.FileViewImpl;
-import com.myorg.gwt.login.client.mvp.presenter.LoginPresenter;
-import com.myorg.gwt.login.client.mvp.presenter.LoginPresenterImpl;
-import com.myorg.gwt.login.client.mvp.view.LoginView;
-import com.myorg.gwt.login.client.mvp.view.css.LoginResources;
-import com.myorg.gwt.login.client.mvp.view.login.LoginViewImpl;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenterImpl;
 import com.myorg.gwt.main.client.mvp.view.MainView;
@@ -26,15 +21,12 @@ import com.myorg.gwt.main.client.mvp.view.main.MainViewImpl;
 
 public class AppGinModule extends ApplicationGinModule {
 
-
     @Override
     protected void configure() {
         super.configure();
         bind(ActivityMapper.class).to(DemoActivityMapper.class).in(Singleton.class);
-        bind(LoginView.class).to(LoginViewImpl.class).in(Singleton.class);
         bind(MainView.class).to(MainViewImpl.class).in(Singleton.class);
         bind(FileView.class).to(FileViewImpl.class).in(Singleton.class);
-        bind(LoginPresenter.class).to(LoginPresenterImpl.class).in(Singleton.class);
         bind(MainPresenter.class).to(MainPresenterImpl.class).in(Singleton.class);
         bind(FilePresenter.class).to(FilePresenterImpl.class).in(Singleton.class);
     }
@@ -47,13 +39,6 @@ public class AppGinModule extends ApplicationGinModule {
         return fileResources;
     }
 
-    @Provides
-    @Singleton
-    LoginResources createLoginResources() {
-        LoginResources loginResources = GWT.create(LoginResources.class);
-        loginResources.style().ensureInjected();
-        return loginResources;
-    }
 
     @Provides
     @Singleton

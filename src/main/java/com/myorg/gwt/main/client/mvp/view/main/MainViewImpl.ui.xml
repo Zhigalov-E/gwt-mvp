@@ -14,7 +14,7 @@
             <br></br>
             <br></br>
             <br></br>
-            <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="#login:"/>
+            <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="/logout"/>
         </div>
     </gwt:HTMLPanel>
 </ui:UiBinder>

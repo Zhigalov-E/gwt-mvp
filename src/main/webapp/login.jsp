@@ -14,8 +14,18 @@
         </a>
     </div>
     <div class="container login-block" style="width: 300px;">
-        <h2 class="form-signin-heading">Please sign in</h2>
+
         <form name='f' action="login" method='POST'>
+            <c:if test="${param.error != null}">
+                <div class="alert alert-danger">
+                    <p>Invalid username and password.</p>
+                </div>
+            </c:if>
+            <c:if test="${param.logout != null}">
+                <div class="alert alert-success">
+                    <p>You have been logged out successfully.</p>
+                </div>
+            </c:if>
             <table>
                 <tr>
                     <td class="title">User:</td>

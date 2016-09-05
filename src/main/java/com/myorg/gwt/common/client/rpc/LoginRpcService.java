@@ -23,9 +23,6 @@ public interface LoginRpcService extends RemoteService {
         }
     }
 
-    UserDTO loginServer(String login, String password);
-
     UserDTO loginFromSessionServer();
 
-    void logout();
 }

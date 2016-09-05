@@ -12,7 +12,6 @@ import com.myorg.gwt.common.client.i18n.AppMessages;
 
 public class ApplicationGinModule extends AbstractGinModule {
 
-
     @Override
     protected void configure() {
         bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
