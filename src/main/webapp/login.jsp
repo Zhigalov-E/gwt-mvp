@@ -17,12 +17,12 @@
 
         <form name='f' action="login" method='POST'>
             <c:if test="${param.error != null}">
-                <div class="alert alert-danger">
+                <div class="error">
                     <p>Invalid username and password.</p>
                 </div>
             </c:if>
             <c:if test="${param.logout != null}">
-                <div class="alert alert-success">
+                <div class="blue">
                     <p>You have been logged out successfully.</p>
                 </div>
             </c:if>
