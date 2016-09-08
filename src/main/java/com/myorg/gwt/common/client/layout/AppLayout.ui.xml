@@ -10,7 +10,7 @@
                     <a href="https://www.ardas.dp.ua/ru">
                         <img src="resources/logo.png"></img>
                     </a>
-                    <gwt:Anchor styleName="helpLink" target="_blank" text="{i18n.helpLink}" href="/helpPage"/>
+                    <gwt:Anchor styleName="helpLink" target="_blank" text="{i18n.helpLink}" href="helpPage"/>
                     <gwt:Anchor styleName="helpLink" ui:field="fileLink" text="{i18n.fileUploadLink}" href="#file:"/>
                 </div>
             </gwt:HTMLPanel>

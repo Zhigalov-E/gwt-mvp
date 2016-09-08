@@ -25,7 +25,7 @@
         />
 
         <logout
-                logout-success-url="/login.jsp"
+                logout-success-url="/login.jsp?logout=true"
         />
     </http>
 

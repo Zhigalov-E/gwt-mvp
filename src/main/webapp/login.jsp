@@ -3,14 +3,13 @@
 <html>
 <head>
     <title>Login</title>
-
     <link href="<c:url value="/css/bootstrap.css" />" rel="stylesheet">
     <link href="<c:url value="/css/signin.css" />" rel="stylesheet">
 </head>
 <body>
     <div id="header">
         <a href="https://www.ardas.dp.ua/ru">
-            <img src="/resources/logo.png"/>
+            <img src="<c:url value="/resources/logo.png"/>"/>
         </a>
     </div>
     <div class="container login-block" style="width: 300px;">
@@ -42,6 +41,8 @@
             </table>
         </form>
     </div>
-    <div id="footer">© 2016 Ardas Group</div>
+    <div id="footer">
+        © 2016 Ardas Group
+    </div>
 </body>
 </html>

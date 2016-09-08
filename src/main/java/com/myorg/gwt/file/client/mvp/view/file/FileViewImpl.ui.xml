@@ -9,7 +9,7 @@
             <gwt:Label ui:field="warnMessage" visible="false"/>
         </gwt:HTMLPanel>
         <gwt:HorizontalPanel styleName="{css.style.fileLoadForm}">
-            <gwt:FormPanel ui:field="form" method="POST" encoding="multipart/form-data" action="/fileProcessor">
+            <gwt:FormPanel ui:field="form" method="POST" encoding="multipart/form-data" action="fileProcessor">
                 <gwt:HorizontalPanel>
                     <gwt:FileUpload ui:field="uploadField" name="file" styleName="{css.style.button}" />
                     <gwt:SubmitButton ui:field="uploadButton" styleName="{css.style.button}" text="{constants.uploadButtonName}"></gwt:SubmitButton>
