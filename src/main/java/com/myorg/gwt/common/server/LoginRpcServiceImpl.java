@@ -15,11 +15,11 @@ import java.util.Map;
 public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRpcService {
 
     private static final Logger LOGGER = Logger.getLogger(LoginRpcServiceImpl.class);
-    private static final Map<String,String> USERS = new HashMap<>();
+    private static Map<String,String> users = new HashMap<>();
 
     {
-        USERS.put("ivan","Иван");
-        USERS.put("john","John");
+        users.put("ivan","Иван");
+        users.put("john","John");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRp
         } else {
             UserDTO userDto = new UserDTO();
             String principal = authentication.getName();
-            userDto.setName(USERS.get(principal));
+            userDto.setName(users.get(principal));
             return userDto;
         }
     }
