@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="i18n.loginConst" />
+<html lang="${language}">
 <head>
     <title>Login</title>
     <link href="<c:url value="/css/bootstrap.css" />" rel="stylesheet">
@@ -13,30 +17,32 @@
         </a>
     </div>
     <div class="container login-block" style="width: 300px;">
-
         <form name='f' action="login" method='POST'>
             <c:if test="${param.error != null}">
                 <div class="error">
-                    <p>Invalid username and password.</p>
+                    <p><fmt:message key="login.message.badcredetian"/></p>
                 </div>
             </c:if>
             <c:if test="${param.logout != null}">
                 <div class="blue">
-                    <p>You have been logged out successfully.</p>
+                    <p><fmt:message key="login.message.logout"/></p>
                 </div>
             </c:if>
             <table>
                 <tr>
-                    <td class="title">User:</td>
+                    <td class="title"><fmt:message key="login.label.username"/></td>
                     <td><input class="form-control" type='text' name='username' value=''></td>
                 </tr>
                 <tr>
-                    <td class="title">Password:</td>
+                    <td class="title"><fmt:message key="login.label.password"/></td>
                     <td><input class="form-control" type='password' name='password'/></td>
                 </tr>
                 <tr>
                     <td/>
-                    <td><input class="btn btn-primary" name="submit" type="submit" value="submit"/></td>
+                    <td>
+                        <fmt:message key="login.button.submit" var="buttonValue" />
+                        <input class="btn btn-primary" name="submit" type="submit" value="${buttonValue}"/>
+                    </td>
                 </tr>
             </table>
         </form>
