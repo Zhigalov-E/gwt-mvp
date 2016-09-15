@@ -4,11 +4,20 @@
               http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
+
+    <context-param>
+        <param-name>migration.systemname</param-name>
+        <param-value>mydb</param-value>
+    </context-param>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
         <listener-class>com.myorg.gwt.common.server.utils.HibernateListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.tacitknowledge.util.migration.jdbc.WebAppMigrationLauncher</listener-class>
     </listener>
 
     <servlet>
@@ -45,5 +54,7 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
 
 </web-app>

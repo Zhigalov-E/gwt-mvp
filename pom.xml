@@ -187,6 +187,19 @@
             <artifactId>hsqldb</artifactId>
             <version>2.3.4</version>
         </dependency>
+
+        <!-- AutoPatch -->
+        <dependency>
+            <groupId>com.tacitknowledge</groupId>
+            <artifactId>autopatch</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
         <!-- crypt lib -->
         <dependency>
             <groupId>org.mindrot</groupId>
