@@ -29,13 +29,34 @@
         />
     </http>
 
-
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="ivan" password="secret" authorities="ROLE_USER"/>
-                <user name="john" password="smith" authorities="ROLE_USER"/>
-            </user-service>
+            <password-encoder hash="md5" />
+            <jdbc-user-service data-source-ref="dataSource"
+                               users-by-username-query="SELECT username, password, enabled FROM v_users WHERE username = ?"
+                               authorities-by-username-query="SELECT username, role FROM v_authorities WHERE username = ?"/>
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <beans:property name="dataSourceProperties" >
+            <beans:props>
+                <beans:prop key="user">postgres</beans:prop>
+                <beans:prop key="password">secret</beans:prop>
+                <beans:prop key="databaseName">mydb</beans:prop>
+                <beans:prop key="portNumber">5432</beans:prop>
+                <beans:prop key="serverName">127.0.0.1</beans:prop>
+            </beans:props>
+        </beans:property>
+        <beans:property name="dataSourceClassName"
+                  value="org.postgresql.ds.PGSimpleDataSource" />
+
+    </beans:bean>
+
+
+    <beans:bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <beans:constructor-arg ref="hikariConfig" />
+    </beans:bean>
+
+
 </beans:beans>
