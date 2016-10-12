@@ -10,11 +10,16 @@
         <param-value>mydb</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            WEB-INF/spring-security.xml
+            WEB-INF/spring-context.xml
+        </param-value>
+    </context-param>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <listener>
-        <listener-class>com.myorg.gwt.common.server.utils.HibernateListener</listener-class>
     </listener>
     <listener>
         <listener-class>com.tacitknowledge.util.migration.jdbc.WebAppMigrationLauncher</listener-class>
