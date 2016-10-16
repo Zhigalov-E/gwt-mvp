@@ -1,4 +1,4 @@
-package com.myorg.gwt.common.server;
+package com.myorg.gwt.common.server.servlets;
 
 import com.myorg.gwt.common.server.model.Client;
 import org.apache.commons.fileupload.FileItem;

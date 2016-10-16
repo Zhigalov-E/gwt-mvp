@@ -4,6 +4,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.myorg.gwt.common.client.i18n.AppMessages;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
+import com.myorg.gwt.common.client.rpc.LoginRpcServiceAsync;
 import com.myorg.gwt.common.client.utils.TimeMessager;
 import com.myorg.gwt.common.shared.UserDTO;
 import com.myorg.gwt.main.client.mvp.view.MainView;
@@ -19,6 +20,8 @@ public class MainPresenterImpl implements  MainPresenter {
 
     @Inject
     AppMessages i18n;
+    @Inject
+    LoginRpcServiceAsync loginRpcService;
 
     @Override
     public void init(MainView view) {
@@ -28,7 +31,7 @@ public class MainPresenterImpl implements  MainPresenter {
     }
 
     public void getLoginUser() {
-        LoginRpcService.Util.getInstance().loginFromSessionServer(new AsyncCallback<UserDTO>() {
+        loginRpcService.loginFromSessionServer(new AsyncCallback<UserDTO>() {
             @Override
             public void onSuccess(UserDTO result) {
                     LOGGER.log(Level.INFO, "Success login operation.");

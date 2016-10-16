@@ -1,4 +1,4 @@
-package com.myorg.gwt.common.server;
+package com.myorg.gwt.common.server.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

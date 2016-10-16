@@ -20,8 +20,7 @@ public class User implements Serializable {
     @Column(name = "login", unique = true, nullable = false, length = 45)
     private String login;
 
-    @Column(name = "password", nullable = false, length = 32)
-    @Type(type = "char")
+    @Column(name = "password", nullable = false, length = 32, columnDefinition = "bpchar")
     private String password;
 
     @Column(name = "first_name", nullable = false, length = 50)
@@ -31,7 +30,7 @@ public class User implements Serializable {
     private String lastName;
 
     @Column(name = "birthday", nullable = false)
-    @Type(type="date")
+    @Temporal(value = TemporalType.DATE)
     private Date birthday;
 
     @Column(name = "email", unique = true, length = 100)

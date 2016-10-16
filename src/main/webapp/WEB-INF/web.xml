@@ -25,22 +25,23 @@
         <listener-class>com.tacitknowledge.util.migration.jdbc.WebAppMigrationLauncher</listener-class>
     </listener>
 
+    <!-- SpringGwt remote service servlet -->
     <servlet>
-        <servlet-name>loginServlet</servlet-name>
-        <servlet-class>com.myorg.gwt.common.server.LoginRpcServiceImpl</servlet-class>
+        <servlet-name>springGwtRemoteServiceServlet</servlet-name>
+        <servlet-class>org.spring4gwt.server.SpringGwtRemoteServiceServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>fileHandler</servlet-name>
-        <servlet-class>com.myorg.gwt.common.server.FileUploadHandler</servlet-class>
+        <servlet-class>com.myorg.gwt.common.server.servlets.FileUploadHandler</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>helpServlet</servlet-name>
-        <servlet-class>com.myorg.gwt.common.server.HelpServlet</servlet-class>
+        <servlet-class>com.myorg.gwt.common.server.servlets.HelpServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>loginServlet</servlet-name>
-        <url-pattern>/app/login</url-pattern>
+        <servlet-name>springGwtRemoteServiceServlet</servlet-name>
+        <url-pattern>/app/springGwtServices/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>helpServlet</servlet-name>

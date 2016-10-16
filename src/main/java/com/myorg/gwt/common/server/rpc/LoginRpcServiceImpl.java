@@ -1,4 +1,4 @@
-package com.myorg.gwt.common.server;
+package com.myorg.gwt.common.server.rpc;
 
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -7,11 +7,12 @@ import com.myorg.gwt.common.shared.UserDTO;
 import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Service("loginRpcService")
 public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRpcService {
 
     private static final Logger LOGGER = Logger.getLogger(LoginRpcServiceImpl.class);
