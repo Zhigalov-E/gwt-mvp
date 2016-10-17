@@ -3,25 +3,21 @@ package com.myorg.gwt.common.server.rpc;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.myorg.gwt.common.client.rpc.LoginRpcService;
+import com.myorg.gwt.common.server.service.UserService;
 import com.myorg.gwt.common.shared.UserDTO;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Service("loginRpcService")
 public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRpcService {
 
     private static final Logger LOGGER = Logger.getLogger(LoginRpcServiceImpl.class);
-    private static Map<String,String> users = new HashMap<>();
 
-    {
-        users.put("ivan","Иван");
-        users.put("john","John");
-    }
+    @Autowired
+    UserService userService;
 
     @Override
     public UserDTO loginFromSessionServer() {
@@ -38,8 +34,8 @@ public class LoginRpcServiceImpl extends RemoteServiceServlet implements LoginRp
             return null;
         } else {
             UserDTO userDto = new UserDTO();
-            String principal = authentication.getName();
-            userDto.setName(users.get(principal));
+            userDto.setName(userService.getUserByLogin(
+                    authentication.getName()).getFirstName());
             return userDto;
         }
     }

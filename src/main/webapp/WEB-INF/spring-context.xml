@@ -9,8 +9,6 @@
 
     <context:component-scan  base-package="com.myorg.gwt.common.server" />
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="dataSourceProperties" >
             <props>
@@ -29,15 +27,15 @@
         <constructor-arg ref="hikariConfig" />
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" >
+    <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan">
-            <list>
-                <value>com.myorg.gwt.common.server.entity</value>
-            </list>
+        <property name="packagesToScan" value="com.myorg.gwt.common.server.entity"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
-        <property name="hibernateProperties">
+        <property name="jpaProperties">
             <props>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
@@ -45,11 +43,10 @@
         </property>
     </bean>
 
-    <bean id="transactionManager"  class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+    <bean id="transactionManager"  class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactoryBean" />
     </bean>
 
-    <bean id="persistenceExceptionTranslationPostProcessor"
-          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <tx:annotation-driven/>
 
 </beans>
