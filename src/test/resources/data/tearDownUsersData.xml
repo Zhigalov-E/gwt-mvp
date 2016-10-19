@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <users user_id="1" login= "john" password= "a66e44736e753d4533746ced572ca821" first_name= "John" last_name= "Looters" birthday= "1976-02-05" email= "looters.john@gmail.com"/>
+    <users user_id="2" login= "ivan" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "Иван" last_name= "Петров" birthday= "1986-02-05" email= "petrov.ivan@gmail.com"/>
+    <authorities user_id="1" role_id="1"/>
+    <authorities user_id="2" role_id="1"/>
+</dataset>

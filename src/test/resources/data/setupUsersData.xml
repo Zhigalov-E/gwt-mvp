@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <users user_id="1" login= "john" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "John" last_name= "Smith" birthday= "1986-02-05" email= "john.smith@gmail.com"/>
+    <users user_id="2" login= "john2" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "John" last_name= "Smith" birthday= "1987-02-05" email= "john.smith2@gmail.com"/>
+    <users user_id="3" login= "john3" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "John" last_name= "Smith" birthday= "1985-02-05" email= "john.smith3@gmail.com"/>
+    <users user_id="4" login= "john4" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "John" last_name= "Smith" birthday= "1988-02-05" email= "john.smith4@gmail.com"/>
+    <users user_id="5" login= "john5" password= "5ebe2294ecd0e0f08eab7690d2a6ee69" first_name= "John" last_name= "Smith" birthday= "1986-02-05" email= "john.smith5@gmail.com"/>
+    <authorities/>
+</dataset>
