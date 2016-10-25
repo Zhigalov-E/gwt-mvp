@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Date;
 
 
-public class TimeBorderTest extends GWTTestCase {
+public class TimeBorderGwtTest extends GWTTestCase {
 
     @Test
     public void testGetMorningBorder() {

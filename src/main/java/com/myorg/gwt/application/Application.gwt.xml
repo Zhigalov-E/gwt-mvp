@@ -4,6 +4,8 @@
     <inherits name='com.myorg.gwt.main.Main'/>
     <inherits name='com.myorg.gwt.file.File'/>
 
+    <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
     <entry-point class='com.myorg.gwt.application.client.ApplicationEntryPoint'/>
+
     <source path='client'/>
 </module>

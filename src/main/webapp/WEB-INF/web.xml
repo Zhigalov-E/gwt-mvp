@@ -38,6 +38,10 @@
         <servlet-name>helpServlet</servlet-name>
         <servlet-class>com.myorg.gwt.common.server.servlets.HelpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>gwtRequest</servlet-name>
+        <servlet-class>com.google.web.bindery.requestfactory.server.RequestFactoryServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>springGwtRemoteServiceServlet</servlet-name>
@@ -51,6 +55,11 @@
         <servlet-name>fileHandler</servlet-name>
         <url-pattern>/fileProcessor</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gwtRequest</servlet-name>
+        <url-pattern>/gwtRequest</url-pattern>
+    </servlet-mapping>
+
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>

@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Date;
 
 
-public class TimeMessagerTest extends GWTTestCase {
+public class TimeMessagerGwtTest extends GWTTestCase {
 
     @Test
     public void testGoodMorning() {
