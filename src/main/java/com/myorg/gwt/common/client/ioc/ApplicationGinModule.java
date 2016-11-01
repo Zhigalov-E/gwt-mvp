@@ -5,9 +5,11 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.inject.Inject;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.myorg.gwt.common.client.i18n.AppMessages;
+import com.myorg.gwt.common.client.request.UserRequestFactory;
 
 
 public class ApplicationGinModule extends AbstractGinModule {
@@ -22,6 +24,14 @@ public class ApplicationGinModule extends AbstractGinModule {
     @Singleton
     AppMessages createAppMessages() {
         return GWT.create(AppMessages.class);
+    }
+
+    @Provides
+    @Singleton
+    UserRequestFactory createUserRequestFactory(EventBus eventBus) {
+        UserRequestFactory requestFactory = GWT.create(AppMessages.class);
+        requestFactory.initialize(eventBus);
+        return requestFactory;
     }
 
 }

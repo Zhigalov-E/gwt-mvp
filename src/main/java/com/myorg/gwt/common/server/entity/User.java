@@ -1,6 +1,7 @@
 package com.myorg.gwt.common.server.entity;
 
-import org.hibernate.annotations.Type;
+import com.google.web.bindery.requestfactory.shared.EntityProxy;
+import com.google.web.bindery.requestfactory.shared.EntityProxyId;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,13 +10,13 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User implements Serializable  {
 
     @Id
     @Column(name = "user_id")
-    @SequenceGenerator(name="user_pk_sequence",sequenceName="users_user_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_pk_sequence")
-    private int id;
+    @SequenceGenerator(name = "user_pk_sequence", sequenceName = "users_user_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_pk_sequence")
+    private Integer id;
 
     @Column(name = "login", unique = true, nullable = false, length = 45)
     private String login;
@@ -36,23 +37,28 @@ public class User implements Serializable {
     @Column(name = "email", unique = true, length = 100)
     private String email;
 
-    public User(String login, String password, String firstName, String lastName, Date birthday, String email) {
+    @Version
+    @Column(name = "version")
+    private Integer version;
+
+    public User(String login, String password, String firstName, String lastName, Date birthday, String email, Integer version) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.email = email;
+        this.version = version;
     }
 
     public User() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -102,5 +108,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
