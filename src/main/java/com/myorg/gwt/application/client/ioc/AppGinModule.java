@@ -17,6 +17,10 @@ import com.myorg.gwt.main.client.mvp.presenter.MainPresenterImpl;
 import com.myorg.gwt.main.client.mvp.view.MainView;
 import com.myorg.gwt.main.client.mvp.view.css.MainResources;
 import com.myorg.gwt.main.client.mvp.view.main.MainViewImpl;
+import com.myorg.gwt.users.client.mvp.presenter.UsersPresenter;
+import com.myorg.gwt.users.client.mvp.presenter.UsersPresenterImpl;
+import com.myorg.gwt.users.client.mvp.view.UsersView;
+import com.myorg.gwt.users.client.mvp.view.impl.UsersViewImpl;
 
 
 public class AppGinModule extends ApplicationGinModule {
@@ -27,8 +31,10 @@ public class AppGinModule extends ApplicationGinModule {
         bind(ActivityMapper.class).to(DemoActivityMapper.class).in(Singleton.class);
         bind(MainView.class).to(MainViewImpl.class).in(Singleton.class);
         bind(FileView.class).to(FileViewImpl.class).in(Singleton.class);
+        bind(UsersView.class).to(UsersViewImpl.class).in(Singleton.class);
         bind(MainPresenter.class).to(MainPresenterImpl.class).in(Singleton.class);
         bind(FilePresenter.class).to(FilePresenterImpl.class).in(Singleton.class);
+        bind(UsersPresenter.class).to(UsersPresenterImpl.class).in(Singleton.class);
     }
 
     @Provides

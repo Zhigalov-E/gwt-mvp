@@ -30,4 +30,6 @@ public interface AppMessages extends Messages {
     String fileUploadLink();
 
     String helpLink();
+
+    String userListLink();
 }

@@ -3,6 +3,7 @@
 <module rename-to='app'>
     <inherits name='com.myorg.gwt.main.Main'/>
     <inherits name='com.myorg.gwt.file.File'/>
+    <inherits name="com.myorg.gwt.users.User"/>
 
     <entry-point class='com.myorg.gwt.application.client.ApplicationEntryPoint'/>
 

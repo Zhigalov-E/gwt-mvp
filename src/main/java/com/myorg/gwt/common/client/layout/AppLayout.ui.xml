@@ -12,6 +12,7 @@
                     </a>
                     <gwt:Anchor styleName="helpLink" target="_blank" text="{i18n.helpLink}" href="helpPage"/>
                     <gwt:Anchor styleName="helpLink" ui:field="fileLink" text="{i18n.fileUploadLink}" href="#file:"/>
+                    <gwt:Anchor styleName="helpLink" ui:field="usersLink" text="{i18n.userListLink}" href="#users:"/>
                 </div>
             </gwt:HTMLPanel>
         </gwt:north>

@@ -15,6 +15,9 @@ import com.myorg.gwt.file.client.mvp.view.css.FileResources;
 import com.myorg.gwt.main.client.mvp.presenter.MainPresenter;
 import com.myorg.gwt.main.client.mvp.view.MainView;
 import com.myorg.gwt.main.client.mvp.view.css.MainResources;
+import com.myorg.gwt.users.client.mvp.presenter.UsersPresenter;
+import com.myorg.gwt.users.client.mvp.view.UsersView;
+import com.myorg.gwt.users.client.mvp.view.css.UsersResources;
 
 @GinModules(AppGinModule.class)
 public interface AppGinjector extends Ginjector {
@@ -29,8 +32,11 @@ public interface AppGinjector extends Ginjector {
     FileConstants getFileConstants();
     MainResources getMainResources();
     FileResources getFileResources();
+    UsersResources getUsersResources();
     MainView getMainView();
     FileView getFileView();
+    UsersView getUsersView();
     MainPresenter getMainPresenter();
     FilePresenter getFilePresenter();
+    UsersPresenter getUsersPresenter();
 }
