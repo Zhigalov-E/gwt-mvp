@@ -14,4 +14,5 @@ public interface UserProxy extends EntityProxy {
     String getLastName();
     Date getBirthday();
 	String getLogin();
+    String getEmail();
 }

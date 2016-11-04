@@ -6,35 +6,40 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
-import com.myorg.gwt.file.client.widget.ClientsTable;
+import com.myorg.gwt.common.client.proxy.UserProxy;
+import com.myorg.gwt.users.client.i18n.UsersListConstants;
 import com.myorg.gwt.users.client.mvp.presenter.UsersPresenter;
 import com.myorg.gwt.users.client.mvp.view.UsersView;
-import com.myorg.gwt.users.client.mvp.view.css.UsersResources;
+import com.myorg.gwt.users.client.mvp.widget.UsersListTable;
+
+import java.util.List;
 
 public class UsersViewImpl extends Composite implements UsersView {
-
-    interface UsersViewUiBinder extends UiBinder<Widget, UsersViewImpl> {
-    }
 
     private static UsersViewUiBinder uiBinder = GWT.create(UsersViewUiBinder.class);
 
     private UsersPresenter presenter;
 
-    @UiField(provided = true)
-    final UsersResources css;
     @UiField
-    ClientsTable userList;
+    UsersListTable userList;
 
     @Inject
-    public UsersViewImpl(final UsersResources css) {
-        this.css = css;
+    public UsersViewImpl(final UsersListConstants constants) {
         initWidget(uiBinder.createAndBindUi(this));
-        //userList.setFileResources(css);
-        //clientData.setFileConstants(fileConstants);
+        userList.setUsersListConstants(constants);
     }
 
     @Override
     public void setPresenter(UsersPresenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void renderUsers(List<UserProxy> userProxyList) {
+        userList.setData(userProxyList);
+    }
+
+
+    interface UsersViewUiBinder extends UiBinder<Widget, UsersViewImpl> {
     }
 }

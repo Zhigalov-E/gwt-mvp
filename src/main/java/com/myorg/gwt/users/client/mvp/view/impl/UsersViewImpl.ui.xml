@@ -1,11 +1,11 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:gwt='urn:import:com.google.gwt.user.client.ui'
-             xmlns:my = 'urn:import:com.myorg.gwt.file.client.widget'>
+             xmlns:my = 'urn:import:com.myorg.gwt.users.client.mvp.widget'>
     <ui:with type="com.myorg.gwt.users.client.mvp.view.css.UsersResources" field="css"/>
 
     <gwt:VerticalPanel horizontalAlignment="center">
         <gwt:HTMLPanel  styleName="{css.style.userListData}">
-            <my:ClientsTable ui:field="userList" ></my:ClientsTable>
+            <my:UsersListTable ui:field="userList" ></my:UsersListTable>
         </gwt:HTMLPanel>
     </gwt:VerticalPanel>
 

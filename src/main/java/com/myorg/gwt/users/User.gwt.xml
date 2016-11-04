@@ -2,7 +2,6 @@
         "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module>
     <inherits name="com.myorg.gwt.common.Common"/>
-    <inherits name="com.myorg.gwt.file.File"/>
 
     <source path='client'/>
 </module>

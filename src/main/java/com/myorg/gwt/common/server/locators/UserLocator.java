@@ -3,14 +3,14 @@ package com.myorg.gwt.common.server.locators;
 import com.google.web.bindery.requestfactory.shared.Locator;
 import com.myorg.gwt.common.server.entity.User;
 
-public class UserLocator extends Locator<User, Long> {
+public class UserLocator extends Locator<User, Integer> {
     @Override
     public User create(Class<? extends User> aClass) {
         return new User();
     }
 
     @Override
-    public User find(Class<? extends User> aClass, Long aLong) {
+    public User find(Class<? extends User> aClass, Integer aInteger) {
         return null;
     }
 
@@ -20,17 +20,17 @@ public class UserLocator extends Locator<User, Long> {
     }
 
     @Override
-    public Long getId(User user) {
-        return user.getId().longValue();
+    public Integer getId(User user) {
+        return user.getId();
     }
 
     @Override
-    public Class<Long> getIdType() {
-        return Long.class;
+    public Class<Integer> getIdType() {
+        return Integer.class;
     }
 
     @Override
-    public Object getVersion(User user) {
+    public Integer getVersion(User user) {
         return user.getVersion();
     }
 }

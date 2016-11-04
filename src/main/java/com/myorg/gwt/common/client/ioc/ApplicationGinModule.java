@@ -29,7 +29,7 @@ public class ApplicationGinModule extends AbstractGinModule {
     @Provides
     @Singleton
     UserRequestFactory createUserRequestFactory(EventBus eventBus) {
-        UserRequestFactory requestFactory = GWT.create(AppMessages.class);
+        UserRequestFactory requestFactory = GWT.create(UserRequestFactory.class);
         requestFactory.initialize(eventBus);
         return requestFactory;
     }
