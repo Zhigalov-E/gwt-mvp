@@ -11,5 +11,6 @@ public interface UsersResources extends ClientBundle {
 
     interface UsersCss extends CssResource {
         String userListData();
+        String usersDataContainer();
     }
 }

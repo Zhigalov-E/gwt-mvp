@@ -10,6 +10,7 @@ import com.myorg.gwt.common.client.proxy.UserProxy;
 import com.myorg.gwt.users.client.i18n.UsersListConstants;
 import com.myorg.gwt.users.client.mvp.presenter.UsersPresenter;
 import com.myorg.gwt.users.client.mvp.view.UsersView;
+import com.myorg.gwt.users.client.mvp.view.css.UsersResources;
 import com.myorg.gwt.users.client.mvp.widget.UsersListTable;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class UsersViewImpl extends Composite implements UsersView {
     private static UsersViewUiBinder uiBinder = GWT.create(UsersViewUiBinder.class);
 
     private UsersPresenter presenter;
+
+    @Inject
+    @UiField
+    UsersResources css;
 
     @UiField
     UsersListTable userList;

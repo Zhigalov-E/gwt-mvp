@@ -2,7 +2,7 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              xmlns:c='urn:import:com.google.gwt.user.cellview.client'>
     <g:HTMLPanel>
-        <g:ScrollPanel width="500px" height ="600px">
+        <g:ScrollPanel width="800px" height ="600px">
             <c:CellTable ui:field="clientTable"/>
         </g:ScrollPanel>
     </g:HTMLPanel>

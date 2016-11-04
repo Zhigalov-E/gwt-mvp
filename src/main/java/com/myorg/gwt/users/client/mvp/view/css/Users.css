@@ -4,3 +4,10 @@
     top:100px;
     bottom:0px;
 }
+
+.usersDataContainer {
+    top: 100px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+}

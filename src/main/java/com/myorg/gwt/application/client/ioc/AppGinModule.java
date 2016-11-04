@@ -20,6 +20,7 @@ import com.myorg.gwt.main.client.mvp.view.main.MainViewImpl;
 import com.myorg.gwt.users.client.mvp.presenter.UsersPresenter;
 import com.myorg.gwt.users.client.mvp.presenter.UsersPresenterImpl;
 import com.myorg.gwt.users.client.mvp.view.UsersView;
+import com.myorg.gwt.users.client.mvp.view.css.UsersResources;
 import com.myorg.gwt.users.client.mvp.view.impl.UsersViewImpl;
 
 
@@ -45,7 +46,6 @@ public class AppGinModule extends ApplicationGinModule {
         return fileResources;
     }
 
-
     @Provides
     @Singleton
     MainResources createMainResources() {
@@ -54,4 +54,11 @@ public class AppGinModule extends ApplicationGinModule {
         return mainResources;
     }
 
+    @Provides
+    @Singleton
+    UsersResources createUsersResources() {
+        UsersResources usersResources = GWT.create(UsersResources.class);
+        usersResources.style().ensureInjected();
+        return usersResources;
+    }
 }

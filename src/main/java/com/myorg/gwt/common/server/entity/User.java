@@ -1,8 +1,5 @@
 package com.myorg.gwt.common.server.entity;
 
-import com.google.web.bindery.requestfactory.shared.EntityProxy;
-import com.google.web.bindery.requestfactory.shared.EntityProxyId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

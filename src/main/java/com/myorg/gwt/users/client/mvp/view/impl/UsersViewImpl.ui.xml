@@ -4,9 +4,10 @@
     <ui:with type="com.myorg.gwt.users.client.mvp.view.css.UsersResources" field="css"/>
 
     <gwt:VerticalPanel horizontalAlignment="center">
-        <gwt:HTMLPanel  styleName="{css.style.userListData}">
-            <my:UsersListTable ui:field="userList" ></my:UsersListTable>
+        <gwt:HTMLPanel  styleName="{css.style.usersDataContainer}">
+            <div class="{css.style.userListData}">
+                <my:UsersListTable ui:field="userList" ></my:UsersListTable>
+            </div>
         </gwt:HTMLPanel>
     </gwt:VerticalPanel>
-
 </ui:UiBinder>

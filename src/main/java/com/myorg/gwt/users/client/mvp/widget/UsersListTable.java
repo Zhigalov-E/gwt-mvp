@@ -8,6 +8,7 @@ import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.myorg.gwt.common.client.proxy.UserProxy;
 import com.myorg.gwt.users.client.i18n.UsersListConstants;
 
@@ -28,20 +29,6 @@ public class UsersListTable<T extends UserProxy> extends Composite {
 
     public void setData(List<T> users) {
         clear();
-        clientTable.addColumn(new TextColumn<T>() {
-            @Override
-            public String getValue(T user) {
-                return user.getId().toString();
-            }
-        }, usersListConstants.columnId());
-
-        clientTable.addColumn(new TextColumn<T>() {
-            @Override
-            public String getValue(T user) {
-                return user.getLogin();
-            }
-
-        }, usersListConstants.columnLogin());
 
         clientTable.addColumn(new TextColumn<T>() {
             @Override
@@ -90,6 +77,7 @@ public class UsersListTable<T extends UserProxy> extends Composite {
     public void setUsersListConstants(UsersListConstants usersListConstants) {
         this.usersListConstants = usersListConstants;
     }
+
 
     public interface UsersListWidgetUiBinder extends UiBinder<Widget, UsersListTable<?>> {
     }
