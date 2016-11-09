@@ -2,13 +2,13 @@ package com.myorg.gwt.users.client.mvp.widget;
 
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 import com.myorg.gwt.common.client.proxy.UserProxy;
 import com.myorg.gwt.users.client.i18n.UsersListConstants;
 
@@ -49,7 +49,7 @@ public class UsersListTable<T extends UserProxy> extends Composite {
         clientTable.addColumn(new TextColumn<T>() {
             @Override
             public String getValue(T user) {
-                return user.getBirthday().toString();
+                return DateTimeFormat.getFormat(usersListConstants.dateFormat()).format(user.getBirthday());
             }
 
         }, usersListConstants.columnBirthday());

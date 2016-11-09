@@ -12,4 +12,6 @@ public interface UsersListConstants extends Constants {
     String columnLastName();
     String columnBirthday();
     String columnEmail();
+
+    String dateFormat();
 }
