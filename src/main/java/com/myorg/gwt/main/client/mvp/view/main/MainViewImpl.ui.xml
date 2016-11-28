@@ -9,12 +9,12 @@
             <br></br>
             <br></br>
             <div style='display:center'>
-                <gwt:Label ui:field="userGreeting" text=""/>
+                <gwt:Label ui:field="userGreeting" text="" styleName="userGreetingMarker"/>
             </div>
             <br></br>
             <br></br>
             <br></br>
-            <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="logout"/>
+            <gwt:Anchor ui:field="logOut" text="{i18n.logout}" href="logout" styleName="logoutMarker"/>
         </div>
     </gwt:HTMLPanel>
 </ui:UiBinder>
