@@ -3,7 +3,7 @@
              xmlns:c='urn:import:com.google.gwt.user.cellview.client'>
     <g:HTMLPanel>
         <g:ScrollPanel width="600px" height ="700px">
-            <c:CellTable ui:field="clientTable"/>
+            <c:CellTable ui:field="clientTable" styleName="usersTableMarker"/>
         </g:ScrollPanel>
     </g:HTMLPanel>
 </ui:UiBinder>
